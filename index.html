@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html>
+    
+<!-- Mirrored from www.brideprice.com.ng/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 13 Apr 2018 12:39:55 GMT -->
+<head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+        <title>Bride Price App</title>
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <link href="img/fav.png" rel="icon" type="image/png" />
+        <link href="css/brideprice-theme.min.css" rel="stylesheet" />
+        <link href="css/jquery.mobile.icons.min.css" rel="stylesheet" />
+        <!-- <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile.structure-1.4.2.min.css" /> -->
+        <link href="css/jquery.mobile.structure-1.4.2.min.css" rel="stylesheet" />
+        <link href="css/custom.css" rel="stylesheet" type="text/css" />
+        <script src="js/jquery-1.10.2.min.js"></script>
+        <script src="js/jquery.mobile-1.4.2.js"></script>
+        <script src="js/FacebookScript.js"></script>
+        <script>
+
+            $(document).on('pagebeforeshow', "#pageone,#disclaimer,#forfriend", function () {
+                $('#footer').css('display', 'none');
+            });
+            $(document).on("pagebeforehide", "#pageone,#disclaimer", function () {
+                /*$('#footer').css('display','inline-block');*/
+            });
+            $(document).on('pagebeforechange', function (e, data) {
+                var bridePriceSoFar = $('#footer #price').html();
+                $('#hiddenPrice').html(bridePriceSoFar);
+                $('#price').html(bridePriceSoFar);
+            });
+            $(document).on('pageshow', "#result", function () {
+
+                var bridePriceFigure = $('#price').html();
+                var bridePriceFbComment = $('#fb-comment').html();
+                var fbshare = 'https://m.facebook.com/dialog/feed?app_id=1420280761574575&link=http://www.brideprice.com.ng&picture=http://anakle.com.ng/apps/brideprice/img/logo-green.png&name=Check Your BridePrice App&description=My bride price is <b>NGN' + bridePriceFigure + '.00</b>.%3Cbr%2F%3E%3Cb%3EElder%27s+verdict%3A+%3C%2Fb%3E ' + bridePriceFbComment + '&redirect_uri=http://www.brideprice.com.ng';
+
+                $('#fb-share-link').attr('href', fbshare);
+
+
+                var bridePriceTwComment = $('#tw-comment').html();
+                var twshare = 'http://twitter.com/intent/tweet?original_referer=http://brideprice.com.ng/&text=My bride price is NGN' + bridePriceFigure + '.00. Elders Verdict: ' + bridePriceTwComment + '&via=bridepricecheck';
+                //twshare = twshare.slice(0,-1);
+                $('#tw-share-link').attr('href', twshare);
+
+
+                setTimeout(function () {
+                    $('#res').css('color', '#2D9670');
+                    $("#loading").css('display', 'none');
+                    $("#res").css('display', 'block');
+                }, 5000);
+
+            });
+
+            $(document).on("pagehide", "#result", function () {
+                $("#loading").css('display', 'block');
+                $("#res").css('display', 'none');
+                $('#footer #price').html(0);
+                $('#hiddenPrice').html(0);
+                $('#price').html(0);
+            });
+
+        </script><script src="js/custom.js"></script>
+    </head>
+    <body>
+        <div id="hiddenPrice" style="display:none !important;">0</div>
+
+        <div id="fb-comment"></div>
+        <!--fb-comment-box-->
+
+        <div id="tw-comment"></div>
+        <!--tw-comment-box-->
+
+        <div class="greenpage" data-role="page" data-theme="a" id="pageone">
+            <div data-role="header"><!--<h1>My App!</h1>			--><img alt="logo" src="img/logo.png" /></div>
+
+            <div data-role="content">
+                <p><br />
+                    Find the true value of your bride price and that of your friends and enemies.</p>
+
+                <p><a class="ui-btn ui-icon-heart ui-btn-icon-right" data-transition="slidefade" href="#pagetwo">Check for yourself</a></p>
+
+                <p><a class="ui-btn ui-icon-user ui-btn-icon-right" data-transition="slidefade" href="#forfriend">Check for friend/enemy</a></p>
+            </div>
+
+            <div data-role="footer"><a class="ui-btn ui-icon-info ui-btn-icon-left" href="#disclaimer">Disclaimer</a></div>
+        </div>
+        <!--page1-->
+
+        <div class="greenpage" data-role="page" id="forfriend">
+            <div data-position="fixed" data-role="header"><!--<h1>My App!</h1>			--><img alt="logo" src="img/logo.png" /></div>
+
+            <div data-role="content">
+                <p>Enter your friend's name, Twitter handle or select a Facebook friend. <!-- <p><a href="#" class="ui-btn ui-icon-cloud ui-btn-icon-right" id="auth-loginlink">Facebook Friend</a></p> --></p>
+
+                <form>
+                    <p><input class="ui-input-text" data-corners="false" data-mini="true" name="friend-name" placeholder="Your friend's name or @twitter handle" required type="text" />
+                    <div data-mini="true" data-role="controlgroup" data-type="horizontal">
+                        <a class="ui-btn ui-icon-back ui-btn ui-icon-arrow-r" href="#pagetwo">Go</a> </div>
+                    <div id="auth-status">
+                        <div id="auth-loggedout">
+                            <div data-mini="true" data-role="controlgroup" data-type="horizontal"><a class="ui-btn ui-icon-back ui-btn-icon-left" href="#pageone">Back</a> <a class="ui-btn" href="#" id="auth-loginlink">Select a Facebook friend</a><button data-icon="arrow-r" data-iconpos="right" data-role="button" type="submit">Go</button></div>
+                        </div>
+
+                        <div id="auth-loggedin" style="display: none">
+                            <br/>
+                            OR
+                            </br>
+                        <div data-mini="true" data-role="controlgroup" >
+                            <a class="ui-btn" href="#" onclick="getUserFriends();">Select a Facebook friend</a>
+                            <ul data-inset="true" data-role="listview" id="categorieslist">
+                            </ul>
+                            <a  href="#" style='background:none; color:white' >Logout from Facebook</a> 
+                        </div><br/>
+                        <div data-mini="true" data-role="controlgroup" data-type="horizontal">
+                            <a class="ui-btn ui-icon-back ui-btn-icon-left" href="#pageone">Back</a> 
+
+                        </div>
+
+                    </div>
+                    </div>
+                </form>
+        </div>
+        </div>
+    <!--page1-->
+
+    <div class="greenpage" data-role="page" id="pagetwo">
+        <div data-role="header"><!--<h1>My App!</h1>			--><img alt="logo" src="img/logo-green.png" /> <a class="ui-btn ui-icon-refresh ui-btn-icon-left start-over top-refresh" data-direction="reverse" data-transition="slidefade" href="#pageone" style="background: none;  border: none;   color: #ccc; text-shadow: none; font-size: 1em;margin-top: -15px;">Restart</a></div>
+
+        <div data-role="content">
+            <h2>Height</h2>
+
+            <ul data-count-theme="c" data-inset="true" data-role="listview">
+                <li class="price-row" data-icon="false"><a href="#">Tall <span class="ui-li-count price-tag" id="+ 20000">+N20,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">Medium <span class="ui-li-count price-tag" id="+ 14500">+N14,500</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">Short <span class="ui-li-count price-tag" id="- 4500">-N4,500</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">Aki &amp; Paw Paw <span class="ui-li-count price-tag" id="- 50000">-N50,000</span></a></li>
+            </ul>
+
+            <p></p>
+
+            <div class="ui-grid-a">
+                <div class="ui-block-a"><a class="ui-btn ui-icon-arrow-l ui-btn-icon-left" data-transition="slidefade" href="#pageone">Previous</a></div>
+
+                <div class="ui-block-b"><a class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="slidefade" href="#pagethree">Next</a></div>
+            </div>
+
+            <p></p>
+        </div>
+    </div>
+    <!--page2-->
+
+    <div class="greenpage" data-role="page" id="pagethree">
+        <div data-role="header"><!--<h1>My App!</h1>			--><img alt="logo" src="img/logo-green.png" /> <a class="ui-btn ui-icon-refresh ui-btn-icon-left start-over top-refresh" data-direction="reverse" data-transition="slidefade" href="#pageone" style="">Restart</a></div>
+
+        <div data-role="content">
+            <h2>Weight</h2>
+
+            <ul data-count-theme="c" data-inset="true" data-role="listview">
+                <li class="price-row" data-icon="false"><a href="#">Slim <span class="ui-li-count price-tag" id="+ 50000">+N50,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">Normal <span class="ui-li-count price-tag" id="+ 20000">+N20,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">Chubby <span class="ui-li-count price-tag" id="+ 25000">+N25,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">Orobo <span class="ui-li-count price-tag" id="+ 2000">+N2,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">Mama Ronke <span class="ui-li-count price-tag" id="% 60">-60% discount</span></a></li>
+            </ul>
+
+            <p></p>
+
+            <div class="ui-grid-a">
+                <div class="ui-block-a"><a class="ui-btn ui-icon-arrow-l ui-btn-icon-left" data-transition="slidefade" href="#pagetwo">Previous</a></div>
+
+                <div class="ui-block-b"><a class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="slidefade" href="#pagefour">Next</a></div>
+            </div>
+
+            <p></p>
+        </div>
+    </div>
+    <!--page3-->
+
+    <div class="greenpage" data-role="page" id="pagefour">
+        <div data-role="header"><!--<h1>My App!</h1>			--><img alt="logo" src="img/logo-green.png" /> <a class="ui-btn ui-icon-refresh ui-btn-icon-left start-over top-refresh" data-direction="reverse" data-transition="slidefade" href="#pageone">Restart</a></div>
+
+        <div data-role="content">
+            <h2>Leg shape</h2>
+
+            <ul data-count-theme="c" data-inset="true" data-role="listview">
+                <li class="price-row" data-icon="false"><a href="#">Straight <span class="ui-li-count price-tag" id="+ 15000">+N15,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">K-leg <span class="ui-li-count price-tag" id="- 5000">-N5,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">Sexy bow legs<br />
+                    (Beyonce) <span class="ui-li-count price-tag" id="+ 20000">+N20,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">Okocha <span class="ui-li-count price-tag" id="- 25000">-N25,000</span></a></li>
+            </ul>
+
+            <p></p>
+
+            <div class="ui-grid-a">
+                <div class="ui-block-a"><a class="ui-btn ui-icon-arrow-l ui-btn-icon-left" data-transition="slidefade" href="#pagethree">Previous</a></div>
+
+                <div class="ui-block-b"><a class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="slidefade" href="#pagefive">Next</a></div>
+            </div>
+
+            <p></p>
+        </div>
+    </div>
+    <!--page4-->
+
+    <div class="greenpage" data-role="page" id="pagefive">
+        <div data-role="header"><!--<h1>My App!</h1>			--><img alt="logo" src="img/logo-green.png" /> <a class="ui-btn ui-icon-refresh ui-btn-icon-left start-over top-refresh" data-direction="reverse" data-transition="slidefade" href="#pageone">Restart</a></div>
+
+        <div data-role="content">
+            <h2>Facial beauty</h2>
+
+            <ul data-count-theme="c" data-inset="true" data-role="listview">
+                <li class="price-row" data-icon="false"><a href="#">Fine &amp; intimidating<span class="ui-li-count price-tag" id="+ 120000">+N120,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">Just fine <span class="ui-li-count price-tag" id="+ 70000">+N70,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">Normal <span class="ui-li-count price-tag" id="+ 15000">+N15,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">OK <span class="ui-li-count price-tag" id="+ 5000">+N5,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">Below OK <span class="ui-li-count price-tag" id="- 10000">-N10,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">Complete no try <span class="ui-li-count price-tag" id="- 25000">-N25,000</span></a></li>
+            </ul>
+
+            <p></p>
+
+            <div class="ui-grid-a">
+                <div class="ui-block-a"><a class="ui-btn ui-icon-arrow-l ui-btn-icon-left" data-transition="slidefade" href="#pagefour">Previous</a></div>
+
+                <div class="ui-block-b"><a class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="slidefade" href="#pagesix">Next</a></div>
+            </div>
+
+            <p></p>
+        </div>
+    </div>
+    <!--page5-->
+
+    <div class="greenpage" data-role="page" id="pagesix">
+        <div data-role="header"><!--<h1>My App!</h1>			--><img alt="logo" src="img/logo-green.png" /> <a class="ui-btn ui-icon-refresh ui-btn-icon-left start-over top-refresh" data-direction="reverse" data-transition="slidefade" href="#pageone">Restart</a></div>
+
+        <div data-role="content">
+            <h2>Skin colour</h2>
+
+            <ul data-count-theme="c" data-inset="true" data-role="listview">
+                <li class="price-row" data-icon="false"><a href="#">Half caste <span class="ui-li-count price-tag" id="+ 50000">+N50,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">Light skin <span class="ui-li-count price-tag" id="+ 40000">+N40,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">Dark <span class="ui-li-count price-tag" id="+ 20000">+N20,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">Whitenicious <span class="ui-li-count price-tag" id="- 50000">-N50,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">Lupita <span class="ui-li-count price-tag" id="+ 50000">+N50,000</span></a></li>
+            </ul>
+
+            <p></p>
+
+            <div class="ui-grid-a">
+                <div class="ui-block-a"><a class="ui-btn ui-icon-arrow-l ui-btn-icon-left" data-transition="slidefade" href="#pagefive">Previous</a></div>
+
+                <div class="ui-block-b"><a class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="slidefade" href="#pageseven">Next</a></div>
+            </div>
+
+            <p></p>
+        </div>
+    </div>
+    <!--page6-->
+
+    <div class="greenpage" data-role="page" id="pageseven">
+        <div data-role="header"><!--<h1>My App!</h1>			--><img alt="logo" src="img/logo-green.png" /> <a class="ui-btn ui-icon-refresh ui-btn-icon-left start-over top-refresh" data-direction="reverse" data-transition="slidefade" href="#pageone">Restart</a></div>
+
+        <div data-role="content">
+            <h2>Facial quality (select as applies)</h2>
+
+            <ul data-count-theme="c" data-inset="true" data-role="listview">
+                <li class="price-row" data-icon="false"><a href="#">Tribal marks (small) <span class="ui-li-count price-tag" id="- 20000">-N20,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">Tribal marks (big) <span class="ui-li-count price-tag" id="- 50000">-N50,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">Small scars <span class="ui-li-count price-tag" id="- 15000">-N15,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">Big scars <span class="ui-li-count price-tag" id="- 45000">-N45,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">Flawless <span class="ui-li-count price-tag" id="+ 50000">+N50,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">Dimples <span class="ui-li-count price-tag" id="+ 15000">+N15,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">Pimples <span class="ui-li-count price-tag" id="- 3000">-N3,000</span></a></li>
+            </ul>
+
+            <p></p>
+
+            <div class="ui-grid-a">
+                <div class="ui-block-a"><a class="ui-btn ui-icon-arrow-l ui-btn-icon-left" data-transition="slidefade" href="#pagesix">Previous</a></div>
+
+                <div class="ui-block-b"><a class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="slidefade" href="#pageeight">Next</a></div>
+            </div>
+
+            <p></p>
+        </div>
+    </div>
+    <!--page7-->
+
+    <div class="greenpage" data-role="page" id="pageeight">
+        <div data-role="header"><!--<h1>My App!</h1>			--><img alt="logo" src="img/logo-green.png" /> <a class="ui-btn ui-icon-refresh ui-btn-icon-left start-over top-refresh" data-direction="reverse" data-transition="slidefade" href="#pageone">Restart</a></div>
+
+        <div data-role="content">
+            <h2>Teeth</h2>
+
+            <ul data-count-theme="c" data-inset="true" data-role="listview">
+                <li class="price-row" data-icon="false"><a href="#">White with Gap <span class="ui-li-count price-tag" id="+ 20000">+N20,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">White with No Gap <span class="ui-li-count price-tag" id="+ 5000">+N5000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">Brown with Gap<span class="ui-li-count price-tag" id="- 5000">-N5,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">Brown with no Gap <span class="ui-li-count price-tag" id="- 10000">-N10,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">Ronaldinho <span class="ui-li-count price-tag" id="- 40000">-N40,000</span></a></li>
+            </ul>
+
+            <p></p>
+
+            <div class="ui-grid-a">
+                <div class="ui-block-a"><a class="ui-btn ui-icon-arrow-l ui-btn-icon-left" data-transition="slidefade" href="#pageseven">Previous</a></div>
+
+                <div class="ui-block-b"><a class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="slidefade" href="#pagenine">Next</a></div>
+            </div>
+
+            <p></p>
+        </div>
+    </div>
+    <!--page8-->
+
+    <div class="greenpage" data-role="page" id="pagenine">
+        <div data-role="header"><!--<h1>My App!</h1>			--><img alt="logo" src="img/logo-green.png" /> <a class="ui-btn ui-icon-refresh ui-btn-icon-left start-over top-refresh" data-direction="reverse" data-transition="slidefade" href="#pageone">Restart</a></div>
+
+        <div data-role="content">
+            <h2>Residency</h2>
+
+            <ul data-count-theme="c" data-inset="true" data-role="listview">
+                <li class="price-row" data-icon="false"><a href="#">Nigeria <span class="ui-li-count price-tag" id="+ 0">+N0</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">African country <span class="ui-li-count price-tag" id="+ 10000">+N10,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">The Abroad + SA<span class="ui-li-count price-tag" id="+ 50000">+N50,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">America <span class="ui-li-count price-tag" id="+ 100000">+N100,000</span></a></li>
+            </ul>
+
+            <p></p>
+
+            <div class="ui-grid-a">
+                <div class="ui-block-a"><a class="ui-btn ui-icon-arrow-l ui-btn-icon-left" data-transition="slidefade" href="#pageeight">Previous</a></div>
+
+                <div class="ui-block-b"><a class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="slidefade" href="#pageten">Next</a></div>
+            </div>
+
+            <p></p>
+        </div>
+    </div>
+    <!--page9-->
+
+    <div class="greenpage" data-role="page" id="pageten">
+        <div data-role="header"><!--<h1>My App!</h1>			--><img alt="logo" src="img/logo-green.png" /> <a class="ui-btn ui-icon-refresh ui-btn-icon-left start-over top-refresh" data-direction="reverse" data-transition="slidefade" href="#pageone">Restart</a></div>
+
+        <div data-role="content">
+            <h2>Nationality</h2>
+
+            <ul data-count-theme="c" data-inset="true" data-role="listview">
+                <li class="price-row" data-icon="false"><a href="#">Naija proper <span class="ui-li-count price-tag" id="+ 0">+N0</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">Dual citizenship (Africa) <span class="ui-li-count price-tag" id="+ 5000">+N5,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">Chinese/Indian <span class="ui-li-count price-tag" id="+ 25000">+N25,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">Dual citizenship (Europe) <span class="ui-li-count price-tag" id="+ 50000">+N50,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">Americana<span class="ui-li-count price-tag" id="+ 200000">+N200,000</span></a></li>
+            </ul>
+
+            <p></p>
+
+            <div class="ui-grid-a">
+                <div class="ui-block-a"><a class="ui-btn ui-icon-arrow-l ui-btn-icon-left" data-transition="slidefade" href="#pagenine">Previous</a></div>
+
+                <div class="ui-block-b"><a class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="slidefade" href="#pageeleven">Next</a></div>
+            </div>
+
+            <p></p>
+        </div>
+    </div>
+    <!--page10-->
+
+    <div class="greenpage" data-role="page" id="pageeleven">
+        <div data-role="header"><!--<h1>My App!</h1>			--><img alt="logo" src="img/logo-green.png" /> <a class="ui-btn ui-icon-refresh ui-btn-icon-left start-over top-refresh" data-direction="reverse" data-transition="slidefade" href="#pageone">Restart</a></div>
+
+        <div data-role="content">
+            <h2>Highest Education</h2>
+
+            <ul data-count-theme="c" data-inset="true" data-role="listview">
+                <li class="price-row" data-icon="false"><a href="#">PHd<span class="ui-li-count price-tag" id="- 50000">-N50,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">Masters<span class="ui-li-count price-tag" id="+ 100000">+N100,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">Bachelors<span class="ui-li-count price-tag" id="+ 75000">+N75,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">HND<span class="ui-li-count price-tag" id="+ 30000">+N30,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">OND<span class="ui-li-count price-tag" id="+ 15000">+N15,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">SSCE<span class="ui-li-count price-tag" id="+ 3000">+N3,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">Primary School<span class="ui-li-count price-tag" id="+ 500">+N500</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">At-all-at-all<span class="ui-li-count price-tag" id="- 100000">-N100,000</span></a></li>
+            </ul>
+
+            <p></p>
+
+            <div class="ui-grid-a">
+                <div class="ui-block-a"><a class="ui-btn ui-icon-arrow-l ui-btn-icon-left" data-transition="slidefade" href="#pageten">Previous</a></div>
+
+                <div class="ui-block-b"><a class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="slidefade" href="#pagetwelve">Next</a></div>
+            </div>
+
+            <p></p>
+        </div>
+    </div>
+    <!--page11-->
+
+    <div class="greenpage" data-role="page" id="pagetwelve">
+        <div data-role="header"><!--<h1>My App!</h1>			--><img alt="logo" src="img/logo-green.png" /> <a class="ui-btn ui-icon-refresh ui-btn-icon-left start-over top-refresh" data-direction="reverse" data-transition="slidefade" href="#pageone">Restart</a></div>
+
+        <div data-role="content">
+            <h2>Cooking skills</h2>
+
+            <ul data-count-theme="c" data-inset="true" data-role="listview">
+                <li class="price-row" data-icon="false"><a href="#">Calabar<span class="ui-li-count price-tag" id="+ 50000">+N50,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">Pounded yam<span class="ui-li-count price-tag" id="+ 30000">+N30,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">Rice &amp; orishirishi<span class="ui-li-count price-tag" id="+ 5000">+N5,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">Indomie<span class="ui-li-count price-tag" id="- 15000">-N15,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">Boiling egg<span class="ui-li-count price-tag" id="- 40000">-N40,000</span></a></li>
+            </ul>
+
+            <p></p>
+
+            <div class="ui-grid-a">
+                <div class="ui-block-a"><a class="ui-btn ui-icon-arrow-l ui-btn-icon-left" data-transition="slidefade" href="#pageeleven">Previous</a></div>
+
+                <div class="ui-block-b"><a class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="slidefade" href="#pagethirteen">Next</a></div>
+            </div>
+
+            <p></p>
+        </div>
+    </div>
+    <!--page12-->
+
+    <div class="greenpage" data-role="page" id="pagethirteen">
+        <div data-role="header"><!--<h1>My App!</h1>			--><img alt="logo" src="img/logo-green.png" /> <a class="ui-btn ui-icon-refresh ui-btn-icon-left start-over top-refresh" data-direction="reverse" data-transition="slidefade" href="#pageone">Restart</a></div>
+
+        <div data-role="content">
+            <h2>Employment</h2>
+
+            <div data-role="content" style="text-align:center">
+                <ul data-count-theme="c" data-inset="true" data-role="listview">
+                    <li class="price-row" data-icon="false"><a href="#">Unemployed<span class="ui-li-count price-tag" id="+ 0">+N0</span></a></li>
+                    <li class="custom-li">
+                        <div class="custom-collapsible" data-role="collapsible">
+                            <h4>Employed</h4>
+
+                            <ul data-role="listview">
+                                <li class="price-row" data-icon="false"><a href="#">Oil/Gas<span class="ui-li-count price-tag" id="+ 100000">+N100,000</span></a></li>
+                                <li class="price-row" data-icon="false"><a href="#">Banker<span class="ui-li-count price-tag" id="+ 40000">+N40,000</span></a></li>
+                                <li class="price-row" data-icon="false"><a href="#">Doctor<span class="ui-li-count price-tag" id="+ 50000">+N50,000</span></a></li>
+                                <li class="price-row" data-icon="false"><a href="#">Proper Lawyer<span class="ui-li-count price-tag" id="+ 50000">+N50,000</span></a></li>
+                                <li class="price-row" data-icon="false"><a href="#">Dangote Group<span class="ui-li-count price-tag" id="+ 15000">+N15,000</span></a></li>
+                                <li class="price-row" data-icon="false"><a href="#">Civil Servant<span class="ui-li-count price-tag" id="+ 30000">+N30,000</span></a></li>
+                                <li class="price-row" data-icon="false"><a href="#">Hospital work<span class="ui-li-count price-tag" id="+ 20000">+N20,000</span></a></li>
+                                <li class="price-row" data-icon="false"><a href="#">Computer computer<br />
+                                    work<span class="ui-li-count price-tag" id="+ 20000">+N20,000</span></a></li>
+                                <li class="price-row" data-icon="false"><a href="#">Talk Talk <br/>(Radio TV work)<span class="ui-li-count price-tag" id="+ 20000">+N20,000</span></a></li>
+                                <li class="price-row" data-icon="false"><a href="#">Charge & Bail <br/>Lawyer<span class="ui-li-count price-tag" id="+ 5000">+N5,000</span></a></li>
+                                <li class="price-row" data-icon="false"><a href="#">Police, Military,<br/> & paramilitary<span class="ui-li-count price-tag" id="+ 5000">+N5,000</span></a></li>
+                                <li class="price-row" data-icon="false"><a href="#">NSCDC <br/>(Oga @ The Top)<span class="ui-li-count price-tag" id="- 15000">-N15,000</span></a></li>
+
+
+                                <li class="price-row" data-icon="false"><a href="#">Emeka &amp; Sons<span class="ui-li-count price-tag" id="+ 2000">+N2,000</span></a></li>
+                                <li class="price-row" data-icon="false"><a href="#" style="border-bottom-width: 7px;border-bottom-color: #fff;">Buying &amp; selling<span class="ui-li-count price-tag" id="+ 1000">+N1,000</span></a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="custom-bottom-li price-row" data-icon="false"><a href="#" style="border-bottom-width: 7px;border-bottom-color: #fff;">Maga Dependent<span class="ui-li-count price-tag" id="- 10000">-N10,000</span></a></li>
+                </ul>
+            </div>
+
+            <p></p>
+
+            <div class="ui-grid-a">
+                <div class="ui-block-a"><a class="ui-btn ui-icon-arrow-l ui-btn-icon-left" data-transition="slidefade" href="#pagetwelve">Previous</a></div>
+
+                <div class="ui-block-b"><a class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="slidefade" href="#pagefourteen">Next</a></div>
+            </div>
+
+            <p></p>
+        </div>
+    </div>
+    <!--page13-->
+
+    <div class="greenpage" data-role="page" id="pagefourteen">
+        <div data-role="header"><!--<h1>My App!</h1>			--><img alt="logo" src="img/logo-green.png" /> <a class="ui-btn ui-icon-refresh ui-btn-icon-left start-over top-refresh" data-direction="reverse" data-transition="slidefade" href="#pageone">Restart</a></div>
+
+        <div data-role="content">
+            <h2>Body Art</h2>
+
+            <ul data-count-theme="c" data-inset="true" data-role="listview">
+                <li class="price-row" data-icon="false"><a href="#">Tattoo<span class="ui-li-count price-tag" id="- 10000">-N10,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">Piercings<span class="ui-li-count price-tag" id="- 5000">-N5,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">None<span class="ui-li-count price-tag" id="+ 0">+N0</span></a></li>
+            </ul>
+
+            <p></p>
+
+            <div class="ui-grid-a">
+                <div class="ui-block-a"><a class="ui-btn ui-icon-arrow-l ui-btn-icon-left" data-transition="slidefade" href="#pagethirteen">Previous</a></div>
+
+                <div class="ui-block-b"><a class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="slidefade" href="#pagefifteen">Next</a></div>
+            </div>
+
+            <p></p>
+        </div>
+    </div>
+    <!--page14-->
+
+    <div class="greenpage" data-role="page" id="pagefifteen">
+        <div data-role="header"><!--<h1>My App!</h1>			--><img alt="logo" src="img/logo-green.png" /> <a class="ui-btn ui-icon-refresh ui-btn-icon-left start-over top-refresh" data-direction="reverse" data-transition="slidefade" href="#pageone">Restart</a></div>
+
+        <div data-role="content">
+            <h2>Accent</h2>
+
+            <ul data-count-theme="c" data-inset="true" data-role="listview">
+                <li class="price-row" data-icon="false"><a href="#">Igbo<span class="ui-li-count price-tag" id="- 10000">-N10,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">Calabar<span class="ui-li-count price-tag" id="- 15000">-N15,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">Yoruba (H-factor)<span class="ui-li-count price-tag" id="- 20000">-N20,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">Warri<span class="ui-li-count price-tag" id="- 8000">-N8,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">Neutral<span class="ui-li-count price-tag" id="+ 2000">+N2,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">British<span class="ui-li-count price-tag" id="+ 45000">+N45,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">Americana proper<span class="ui-li-count price-tag" id="+ 40000">+N40,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">Americana (Local)<span class="ui-li-count price-tag" id="+ 5000">+N5,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">Confused Americana<span class="ui-li-count price-tag" id="+ 1000">+N1,000</span></a></li>
+            </ul>
+
+            <p></p>
+
+            <div class="ui-grid-a">
+                <div class="ui-block-a"><a class="ui-btn ui-icon-arrow-l ui-btn-icon-left" data-transition="slidefade" href="#pagefourteen">Previous</a></div>
+
+                <div class="ui-block-b"><a class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="slidefade" href="#pagesixteen">Next</a></div>
+            </div>
+
+            <p></p>
+        </div>
+    </div>
+    <!--page15-->
+
+    <div class="greenpage" data-role="page" id="pagesixteen">
+        <div data-role="header"><!--<h1>My App!</h1>			--><img alt="logo" src="img/logo-green.png" /> <a class="ui-btn ui-icon-refresh ui-btn-icon-left start-over top-refresh" data-direction="reverse" data-transition="slidefade" href="#pageone">Restart</a></div>
+
+        <div data-role="content">
+            <h2>Bonus</h2>
+
+            <ul data-count-theme="c" data-inset="true" data-role="listview">
+                <li class="price-row" data-icon="false"><a href="#">Club girl<span class="ui-li-count price-tag" id="- 40000">-N40,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">Ada ada<span class="ui-li-count price-tag" id="+ 30000">+N30,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">Prayer warrior<span class="ui-li-count price-tag" id="+ 40000">+N40,000</span></a></li>
+                <li class="price-row" data-icon="false"><a href="#">Ada in the morning<br />
+                    and Caro at night<span class="ui-li-count price-tag" id="+ 100000">+N100,000</span></a></li>
+            </ul>
+
+            <p></p>
+
+            <div class="ui-grid-a">
+                <div class="ui-block-a"><a class="ui-btn ui-icon-arrow-l ui-btn-icon-left" data-transition="slidefade" href="#pagefifteen">Previous</a></div>
+
+                <div class="ui-block-b"><a class="ui-btn ui-icon-check ui-btn-icon-right" data-transition="slidefade" href="#result">Submit</a></div>
+            </div>
+
+            <p></p>
+            <!--	 <p>
+<a href="#pageone" data-transition="slidefade" data-direction="reverse" class="ui-btn ui-icon-refresh ui-btn-icon-left start-over">Start Over</a>
+</p>            --></div>
+    </div>
+    <!--page16-->
+
+    <div data-role="page" id="result">
+        <div class="result-header affixed-header-style" data-role="header"><!--<h1>My App!</h1>			--><img alt="logo" src="img/logo-green.png" /> <a class="ui-btn ui-icon-refresh ui-btn-icon-left start-over top-refresh" data-direction="reverse" data-transition="slidefade" href="#pageone">Restart</a></div>
+
+        <div data-role="content">
+            <div id="loading"><img alt="loading" height="166" src="img/consulting.gif" width="160" /></div>
+
+            <div id="res"><!--    <h2>Elder's Verdict!</h2> -->
+                <p></p>
+
+                <div><img alt="elders" src="img/elders.jpg" width="274px" /></div>
+
+                <div>
+                    <h4>Your bride price is</h4>
+
+                    <h2><span>NGN </span><span id="price"></span><span>.00</span></h2>
+
+                    <h4 id="elder-comment">The elders are fasting on your behalf.</h4>
+                    <div style="padding: 15px;">
+                        <a target="_blank" href="#!" id="download-certificate">Click here to get your certificate</a>
+                    </div>
+                </div>
+
+                <div class="ui-grid-a social-share">
+                    <div class="ui-block-a"><a href="#" id="fb-share-link"><img alt="share on facebook" height="40" src="img/share-fb.png" /></a></div>
+
+                    <div class="ui-block-b"><!--id="custom-tweet-button">--><a class="twitter-share-button" href="#" id="tw-share-link"><img alt="share on twitter" height="40" src="img/share-tw.png"/></a> <!--<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>--></div>
+                </div>
+                <!-- <p>
+<a href="#pageone" data-transition="slidefade" data-direction="reverse" class="ui-btn ui-icon-refresh ui-btn-icon-left start-over">Start Over</a>
+</p>            --></div>
+        </div>
+    </div>
+    <!--result-->
+
+    <div class="greenpage" data-dialog="true" data-role="page" id="disclaimer">
+        <div data-role="header">
+            <h1>Disclaimer</h1>
+        </div>
+
+        <div data-role="content">
+            <h4>We are responsible for optimal performance of this app, but we are not responsible for what you do with it. </h4>
+            <p>This app is a joke, and all there is to it. </p>
+        </div>
+        <!--      <div data-role="footer">
+<a href="#pageone" data-transition="slidefade" data-direction="reverse">Okay</a>
+</div>          --></div>
+    <!--disclaimer-->
+
+    <div data-id="main-footer" data-role="footer" id="footer"><span>NGN </span><span id="price">0</span></div>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                                })(window,document,'script','../www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-51322228-1', 'brideprice.com.ng');
+        ga('send', 'pageview');
+
+    </script>
+    <script>
+        $(function(){
+            $('#download-certificate').removeClass('ui-link');
+            $('a').css({ 'text-decoration': 'none' });
+        });
+
+    </script>
+    </body>
+
+<!-- Mirrored from www.brideprice.com.ng/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 13 Apr 2018 12:40:11 GMT -->
+</html>
