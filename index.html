@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
-    
+
 <!-- Mirrored from www.brideprice.com.ng/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 13 Apr 2018 12:39:55 GMT -->
 <head>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
         <title>Bride Price App</title>
         <meta content="width=device-width, initial-scale=1" name="viewport" />
-        <link href="img/fav.png" rel="icon" type="image/png" />
+        <link href="img/favicon.ico" rel="icon" type="image/vn.microsoft.icon" />
         <link href="css/brideprice-theme.min.css" rel="stylesheet" />
         <link href="css/jquery.mobile.icons.min.css" rel="stylesheet" />
+        <link rel=stylesheet type=text/css href="css/bootstrap/bootstrap.min.css">
         <!-- <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile.structure-1.4.2.min.css" /> -->
         <link href="css/jquery.mobile.structure-1.4.2.min.css" rel="stylesheet" />
         <link href="css/custom.css" rel="stylesheet" type="text/css" />
@@ -71,525 +72,246 @@
         <!--tw-comment-box-->
 
         <div class="greenpage" data-role="page" data-theme="a" id="pageone">
-            <div data-role="header"><!--<h1>My App!</h1>			--><img alt="logo" src="img/logo.png" /></div>
-
-            <div data-role="content">
-                <p><br />
-                    Find the true value of your bride price and that of your friends and enemies.</p>
-
-                <p><a class="ui-btn ui-icon-heart ui-btn-icon-right" data-transition="slidefade" href="#pagetwo">Check for yourself</a></p>
-
-                <p><a class="ui-btn ui-icon-user ui-btn-icon-right" data-transition="slidefade" href="#forfriend">Check for friend/enemy</a></p>
-            </div>
+            <div data-role="header">
+              <h1 style="color: #fff !important;  width: 70% !important; margin: 0; text-align: left; margin-left: 10px;">Mkopo Kocha</h1></div>
+              <div class="container" style="padding-top: 90px">
+                <div class="row">
+                  <div class="col-md-8 offset-2" data-role="content">
+                      <h3>Connect to a financial institution with <em>Mkopo Kocha</em> </h3>
+                      <h4><em>A credit readiness service</em></h4>
+                      <div class="col-md-8 offset-2" style="padding-top: 40px"><a class="ui-btn ui-btn-icon-right" data-transition="slidefade" href="#pagetwo">Get Started</a></div>
+                  </div>
+                </div>
+              </div>
 
             <div data-role="footer"><a class="ui-btn ui-icon-info ui-btn-icon-left" href="#disclaimer">Disclaimer</a></div>
         </div>
         <!--page1-->
 
-        <div class="greenpage" data-role="page" id="forfriend">
-            <div data-position="fixed" data-role="header"><!--<h1>My App!</h1>			--><img alt="logo" src="img/logo.png" /></div>
-
-            <div data-role="content">
-                <p>Enter your friend's name, Twitter handle or select a Facebook friend. <!-- <p><a href="#" class="ui-btn ui-icon-cloud ui-btn-icon-right" id="auth-loginlink">Facebook Friend</a></p> --></p>
-
-                <form>
-                    <p><input class="ui-input-text" data-corners="false" data-mini="true" name="friend-name" placeholder="Your friend's name or @twitter handle" required type="text" />
-                    <div data-mini="true" data-role="controlgroup" data-type="horizontal">
-                        <a class="ui-btn ui-icon-back ui-btn ui-icon-arrow-r" href="#pagetwo">Go</a> </div>
-                    <div id="auth-status">
-                        <div id="auth-loggedout">
-                            <div data-mini="true" data-role="controlgroup" data-type="horizontal"><a class="ui-btn ui-icon-back ui-btn-icon-left" href="#pageone">Back</a> <a class="ui-btn" href="#" id="auth-loginlink">Select a Facebook friend</a><button data-icon="arrow-r" data-iconpos="right" data-role="button" type="submit">Go</button></div>
-                        </div>
-
-                        <div id="auth-loggedin" style="display: none">
-                            <br/>
-                            OR
-                            </br>
-                        <div data-mini="true" data-role="controlgroup" >
-                            <a class="ui-btn" href="#" onclick="getUserFriends();">Select a Facebook friend</a>
-                            <ul data-inset="true" data-role="listview" id="categorieslist">
-                            </ul>
-                            <a  href="#" style='background:none; color:white' >Logout from Facebook</a> 
-                        </div><br/>
-                        <div data-mini="true" data-role="controlgroup" data-type="horizontal">
-                            <a class="ui-btn ui-icon-back ui-btn-icon-left" href="#pageone">Back</a> 
-
-                        </div>
-
-                    </div>
-                    </div>
-                </form>
-        </div>
-        </div>
-    <!--page1-->
-
     <div class="greenpage" data-role="page" id="pagetwo">
-        <div data-role="header"><!--<h1>My App!</h1>			--><img alt="logo" src="img/logo-green.png" /> <a class="ui-btn ui-icon-refresh ui-btn-icon-left start-over top-refresh" data-direction="reverse" data-transition="slidefade" href="#pageone" style="background: none;  border: none;   color: #ccc; text-shadow: none; font-size: 1em;margin-top: -15px;">Restart</a></div>
+      <div data-role="header">
+        <h1 style="color: #fff !important;  width: 70% !important; margin: 0; text-align: left; margin-left: 10px;">Mkopo Kocha</h1>
+        <a class="ui-btn ui-icon-refresh ui-btn-icon-left start-over top-refresh" data-direction="reverse" data-transition="slidefade" href="#pageone" style="background: none;  border: none;   color: #ccc; text-shadow: none; font-size: 1em;margin-top: -45px;">Restart</a>
+      </div>
+      <div class="container" style="padding-top: 90px">
+        <div class="row">
+          <div class="col-md-8 offset-2" data-role="content">
+              <h3>Enter your organisation details </h3>
+              <form style="padding: 10px 0">
+                <div class="form-group">
+                  <label style="text-align: left;font-size: 20px;line-height: 3;">Name of Organistaion:</label> <input class="ui-input-text"  data-corners="false" data-mini="true" name="sme-name" id="sme-name" required type="text" />
+                </div>
+                <div class="form-group">
+                  <label style="text-align: left;font-size: 20px;line-height: 3;">Location:</label>
+                  <select style="border-style: none !important; background-color: #fff;" data-corners="false" data-mini="true" name="sme-name" id="sme-name">
+                      <option>Arusha</option>
+                      <option>Dar-es-salaam</option>
+                      <option>Geita</option>
+                      <option>Iringa</option>
+                      <option>Zanzibar</option>
+                      <option>Mbeya</option>
+                      <option>Morogoro</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                  <label style="text-align: left;font-size: 20px;line-height: 3;">Age of business:</label><input class="ui-input-text" data-corners="false" data-mini="true" name="friend-name" required type="text" />
+                </div>
+                <div class="form-group">
+                  <label style="text-align: left;font-size: 20px;line-height: 3;">Business Type:</label>
+                  <select style="border-style: none !important; background-color: #fff;" data-corners="false" data-mini="true" name="sme-name" id="sme-business-type">
+                      <option>Agriculture</option>
+                      <option>Building & Construction</option>
+                      <option>Business Developmnet</option>
+                      <option>Education</option>
+                      <option>Energy</option>
+                      <option>Environment</option>
+                      <option>Financial Services</option>
+                      <option>Food Processing</option>
+                      <option>Health</option>
+                      <option>Hotels</option>
+                      <option>Information Technology</option>
+                      <option>Manufacturing</option>
+                      <option>Tourism</option>
+                      <option>Trading</option>
+                      <option>Transport and Communication</option>
+                      <option>Water</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                  <label style="text-align: left;font-size: 20px;line-height: 3;">Business Organistaion:</label>
+                  <select style="border-style: none !important; background-color: #fff;" data-corners="false" data-mini="true" name="sme-name" id="sme-business-organisation">
+                      <option>Association</option>
+                      <option>Corporation</option>
+                      <option>Limited Liability</option>
+                      <option>Partnership</option>
+                      <option>Sole Proprietorship</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                  <label style="text-align: left;font-size: 20px;line-height: 3;">Number of employees:</label> <input class="ui-input-text" data-corners="false" data-mini="true" name="friend-name" required type="text" />
+                </div>
+                <div class="form-group">
+                  <label style="text-align: left;font-size: 20px;line-height: 3;">Experience of Top Manager:</label> <input class="ui-input-text" data-corners="false" data-mini="true" name="friend-name" required type="text" />
+                </div>
+                  <!-- <div data-mini="true" data-role="controlgroup" data-type="horizontal">
+                      <a class="ui-btn ui-icon-back ui-btn ui-icon-arrow-r" href="#pagetwo">Go</a> </div> -->
+              </form>
+              <div class="ui-grid-a">
+                  <div class="ui-block-a"><a class="ui-btn ui-icon-arrow-l ui-btn-icon-left" data-transition="slidefade" href="#pageone">Previous</a></div>
 
-        <div data-role="content">
-            <h2>Height</h2>
-
-            <ul data-count-theme="c" data-inset="true" data-role="listview">
-                <li class="price-row" data-icon="false"><a href="#">Tall <span class="ui-li-count price-tag" id="+ 20000">+N20,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">Medium <span class="ui-li-count price-tag" id="+ 14500">+N14,500</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">Short <span class="ui-li-count price-tag" id="- 4500">-N4,500</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">Aki &amp; Paw Paw <span class="ui-li-count price-tag" id="- 50000">-N50,000</span></a></li>
-            </ul>
-
-            <p></p>
-
-            <div class="ui-grid-a">
-                <div class="ui-block-a"><a class="ui-btn ui-icon-arrow-l ui-btn-icon-left" data-transition="slidefade" href="#pageone">Previous</a></div>
-
-                <div class="ui-block-b"><a class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="slidefade" href="#pagethree">Next</a></div>
-            </div>
-
-            <p></p>
+                  <div class="ui-block-b"><a class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="slidefade" href="#pagethree">Next</a></div>
+              </div>
+          </div>
         </div>
+      </div>
     </div>
     <!--page2-->
 
     <div class="greenpage" data-role="page" id="pagethree">
-        <div data-role="header"><!--<h1>My App!</h1>			--><img alt="logo" src="img/logo-green.png" /> <a class="ui-btn ui-icon-refresh ui-btn-icon-left start-over top-refresh" data-direction="reverse" data-transition="slidefade" href="#pageone" style="">Restart</a></div>
+      <div data-role="header">
+        <h1 style="color: #fff !important;  width: 70% !important; margin: 0; text-align: left; margin-left: 10px;">Mkopo Kocha</h1>
+        <a class="ui-btn ui-icon-refresh ui-btn-icon-left start-over top-refresh" data-direction="reverse" data-transition="slidefade" href="#pageone" style="background: none;  border: none;   color: #ccc; text-shadow: none; font-size: 1em;margin-top: -45px;">Restart</a>
+      </div>
+      <div class="container" style="padding-top: 90px">
+        <div class="row">
+          <div class="col-md-8 offset-2" data-role="content">
+              <h3>Enter your Financial Information </h3>
+              <form style="padding: 10px 0">
+                <div class="form-group">
+                  <label style="text-align: left;font-size: 20px;line-height: 3;">Amount of Revenue:</label> <input class="ui-input-text"  data-corners="false" data-mini="true" name="friend-name" required type="text" />
+                </div>
+                <div class="form-group">
+                  <label style="text-align: left;font-size: 20px;line-height: 3;">Amount of Expenditure:</label><input class="ui-input-text" data-corners="false" data-mini="true" name="friend-name" required type="text" />
+                </div>
+                <div class="form-group">
+                  <label style="text-align: left;font-size: 20px;line-height: 3;">Years of Profitability:</label><input class="ui-input-text" data-corners="false" data-mini="true" name="friend-name" required type="text" />
+                </div>
+                <div class="form-group">
+                  <label style="text-align: left;font-size: 20px;line-height: 3;">Assets:</label><input class="ui-input-text" data-corners="false" data-mini="true" name="friend-name" required type="text" />
+                </div>
+                <div class="form-group">
+                  <label style="text-align: left;font-size: 20px;line-height: 3;">Collateral:</label>
+                  <label class="checkbox-inline"><input type="checkbox" value="sme-collateral-building">Building</label>
+                  <label class="checkbox-inline"><input type="checkbox" value="sme-collateral-land">Land</label>
+                  <label class="checkbox-inline"><input type="checkbox" value="sme-collateral-cash">Cash</label>
+                  <label class="checkbox-inline"><input type="checkbox" value="sme-collateral-car">Car</label>
+                  <label class="checkbox-inline"><input type="checkbox" value="sme-collateral-equipment">Equipment</label>
+                  <label class="checkbox-inline"><input type="checkbox" value="sme-collateral-guarantor-letter">Guarantor Letter</label>
+                </div>
+                <div class="form-group">
+                  <label style="text-align: left;font-size: 20px;line-height: 3;">Amount of debt:</label> <input class="ui-input-text" data-corners="false" data-mini="true" name="friend-name" required type="text" />
+                </div>
+                  <!-- <div data-mini="true" data-role="controlgroup" data-type="horizontal">
+                      <a class="ui-btn ui-icon-back ui-btn ui-icon-arrow-r" href="#pagetwo">Go</a> </div> -->
+              </form>
+              <div class="ui-grid-a">
+                  <div class="ui-block-a"><a class="ui-btn ui-icon-arrow-l ui-btn-icon-left" data-transition="slidefade" href="#pagetwo">Previous</a></div>
 
-        <div data-role="content">
-            <h2>Weight</h2>
-
-            <ul data-count-theme="c" data-inset="true" data-role="listview">
-                <li class="price-row" data-icon="false"><a href="#">Slim <span class="ui-li-count price-tag" id="+ 50000">+N50,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">Normal <span class="ui-li-count price-tag" id="+ 20000">+N20,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">Chubby <span class="ui-li-count price-tag" id="+ 25000">+N25,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">Orobo <span class="ui-li-count price-tag" id="+ 2000">+N2,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">Mama Ronke <span class="ui-li-count price-tag" id="% 60">-60% discount</span></a></li>
-            </ul>
-
-            <p></p>
-
-            <div class="ui-grid-a">
-                <div class="ui-block-a"><a class="ui-btn ui-icon-arrow-l ui-btn-icon-left" data-transition="slidefade" href="#pagetwo">Previous</a></div>
-
-                <div class="ui-block-b"><a class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="slidefade" href="#pagefour">Next</a></div>
-            </div>
-
-            <p></p>
+                  <div class="ui-block-b"><a class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="slidefade" href="#pagefour">Next</a></div>
+              </div>
+          </div>
         </div>
+      </div>
     </div>
     <!--page3-->
 
     <div class="greenpage" data-role="page" id="pagefour">
-        <div data-role="header"><!--<h1>My App!</h1>			--><img alt="logo" src="img/logo-green.png" /> <a class="ui-btn ui-icon-refresh ui-btn-icon-left start-over top-refresh" data-direction="reverse" data-transition="slidefade" href="#pageone">Restart</a></div>
+      <div data-role="header">
+        <h1 style="color: #fff !important;  width: 70% !important; margin: 0; text-align: left; margin-left: 10px;">Mkopo Kocha</h1>
+        <a class="ui-btn ui-icon-refresh ui-btn-icon-left start-over top-refresh" data-direction="reverse" data-transition="slidefade" href="#pageone" style="background: none;  border: none;   color: #ccc; text-shadow: none; font-size: 1em;margin-top: -45px;">Restart</a>
+      </div>
+      <div class="container" style="padding-top: 90px">
+        <div class="row">
+          <div class="col-md-8 offset-2" data-role="content">
+              <h3>Enter your Financial Information </h3>
+              <form style="padding: 10px 0">
+                <div class="form-group">
+                  <label style="text-align: left;font-size: 20px;line-height: 3;">Financing Project:</label>
+                  <select style="border-style: none !important; background-color: #fff;" data-corners="false" data-mini="true" name="sme-name" id="sme-finance-project">
+                      <option>Expanding Business</option>
+                      <option>Research</option>
+                      <option>New Control and Monitoring Systems</option>
+                      <option>New equipment</option>
+                      <option>New Office</option>
+                      <option>Fixing damaged Equipments</option>
+                      <option>New Product Development</option>
+                      <option>New Vehicles</option>
+                    </select>
+                </div>
 
-        <div data-role="content">
-            <h2>Leg shape</h2>
+                <div class="form-group">
+                  <label style="text-align: left;font-size: 20px;line-height: 3;">Do you have Financial Instituion Preference? Check all that apply:</label>
+                  <label class="checkbox-inline"><input type="checkbox" value="sme-institution-microfinance">Microfinance</label>
+                  <label class="checkbox-inline"><input type="checkbox" value="sme-institution-bank">Bank</label>
+                  <label class="checkbox-inline"><input type="checkbox" value="sme-institution-saccos">Saccos</label>
+                </div>
+                <div class="form-group">
+                  <label style="text-align: left;font-size: 20px;line-height: 3;">Are you assigned to a business advisor?</label>
+                    <label class="radio"><input type="radio" value="">Yes</label>
+                    <label class="radio"><input type="radio" value="">No</label>
 
-            <ul data-count-theme="c" data-inset="true" data-role="listview">
-                <li class="price-row" data-icon="false"><a href="#">Straight <span class="ui-li-count price-tag" id="+ 15000">+N15,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">K-leg <span class="ui-li-count price-tag" id="- 5000">-N5,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">Sexy bow legs<br />
-                    (Beyonce) <span class="ui-li-count price-tag" id="+ 20000">+N20,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">Okocha <span class="ui-li-count price-tag" id="- 25000">-N25,000</span></a></li>
-            </ul>
+                </div>
+                <div class="form-group">
+                  <label style="text-align: left;font-size: 20px;line-height: 3;">Do you have? Check all that apply:</label>
+                  <label class="checkbox-inline"><input type="checkbox" value="sme-document-certificate">Certificate of Registration or Incorporation</label>
+                  <label class="checkbox-inline"><input type="checkbox" value="sme-document-licence">Business Licence</label>
+                  <label class="checkbox-inline"><input type="checkbox" value="sme-document-tin">Tin Number</label>
+                  <label class="checkbox-inline"><input type="checkbox" value="sme-document-return">Filed Annual Return</label>
+                  <label class="checkbox-inline"><input type="checkbox" value="sme-document-resolution">Minutes of Board Resolution</label>
+                  <label class="checkbox-inline"><input type="checkbox" value="sme-document-financial">Audited Financials</label>
+                  <label class="checkbox-inline"><input type="checkbox" value="sme-document-sheet">Balance Sheets and Income Statement</label>
+                  <label class="checkbox-inline"><input type="checkbox" value="sme-document-plan">Business or Project Plan</label>
+                  <label class="checkbox-inline"><input type="checkbox" value="sme-document-projections">Projections of financials based on projects</label>
+                  <label class="checkbox-inline"><input type="checkbox" value="sme-document-financial">Audited Financials</label>
+                </div>
+                <div class="form-group">
+                  <label style="text-align: left;font-size: 20px;line-height: 3;">Amount of loan required:</label> <input class="ui-input-text" data-corners="false" data-mini="true" name="friend-name" required type="text" />
+                </div>
+                  <!-- <div data-mini="true" data-role="controlgroup" data-type="horizontal">
+                      <a class="ui-btn ui-icon-back ui-btn ui-icon-arrow-r" href="#pagetwo">Go</a> </div> -->
+              </form>
+              <div class="ui-grid-a">
+                  <div class="ui-block-a"><a class="ui-btn ui-icon-arrow-l ui-btn-icon-left" data-transition="slidefade" href="#pagethree">Previous</a></div>
 
-            <p></p>
-
-            <div class="ui-grid-a">
-                <div class="ui-block-a"><a class="ui-btn ui-icon-arrow-l ui-btn-icon-left" data-transition="slidefade" href="#pagethree">Previous</a></div>
-
-                <div class="ui-block-b"><a class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="slidefade" href="#pagefive">Next</a></div>
+                  <div class="ui-block-b"><a class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="slidefade" href="#result">Next</a></div>
+              </div>
             </div>
-
-            <p></p>
+          </div>
         </div>
     </div>
     <!--page4-->
 
-    <div class="greenpage" data-role="page" id="pagefive">
-        <div data-role="header"><!--<h1>My App!</h1>			--><img alt="logo" src="img/logo-green.png" /> <a class="ui-btn ui-icon-refresh ui-btn-icon-left start-over top-refresh" data-direction="reverse" data-transition="slidefade" href="#pageone">Restart</a></div>
+    <!--result-->
 
+    <div class="greenpage" data-role="page" id="result">
+      <div data-role="header">
+        <h1 style="color: #fff !important;  width: 70% !important; margin: 0; text-align: left; margin-left: 10px;">Mkopo Kocha</h1>
+        <a class="ui-btn ui-icon-refresh ui-btn-icon-left start-over top-refresh" data-direction="reverse" data-transition="slidefade" href="#pageone" style="background: none;  border: none;   color: #ccc; text-shadow: none; font-size: 1em;margin-top: -45px;">Restart</a>
+      </div>
         <div data-role="content">
-            <h2>Facial beauty</h2>
-
-            <ul data-count-theme="c" data-inset="true" data-role="listview">
-                <li class="price-row" data-icon="false"><a href="#">Fine &amp; intimidating<span class="ui-li-count price-tag" id="+ 120000">+N120,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">Just fine <span class="ui-li-count price-tag" id="+ 70000">+N70,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">Normal <span class="ui-li-count price-tag" id="+ 15000">+N15,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">OK <span class="ui-li-count price-tag" id="+ 5000">+N5,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">Below OK <span class="ui-li-count price-tag" id="- 10000">-N10,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">Complete no try <span class="ui-li-count price-tag" id="- 25000">-N25,000</span></a></li>
-            </ul>
-
-            <p></p>
-
-            <div class="ui-grid-a">
-                <div class="ui-block-a"><a class="ui-btn ui-icon-arrow-l ui-btn-icon-left" data-transition="slidefade" href="#pagefour">Previous</a></div>
-
-                <div class="ui-block-b"><a class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="slidefade" href="#pagesix">Next</a></div>
+            <div id="loading" style="padding-top: 100px"><img alt="loading" height="166" src="img/money.gif" width="160" />
+              <h4><em>Please wait</em></h4>
             </div>
 
-            <p></p>
-        </div>
-    </div>
-    <!--page5-->
-
-    <div class="greenpage" data-role="page" id="pagesix">
-        <div data-role="header"><!--<h1>My App!</h1>			--><img alt="logo" src="img/logo-green.png" /> <a class="ui-btn ui-icon-refresh ui-btn-icon-left start-over top-refresh" data-direction="reverse" data-transition="slidefade" href="#pageone">Restart</a></div>
-
-        <div data-role="content">
-            <h2>Skin colour</h2>
-
-            <ul data-count-theme="c" data-inset="true" data-role="listview">
-                <li class="price-row" data-icon="false"><a href="#">Half caste <span class="ui-li-count price-tag" id="+ 50000">+N50,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">Light skin <span class="ui-li-count price-tag" id="+ 40000">+N40,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">Dark <span class="ui-li-count price-tag" id="+ 20000">+N20,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">Whitenicious <span class="ui-li-count price-tag" id="- 50000">-N50,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">Lupita <span class="ui-li-count price-tag" id="+ 50000">+N50,000</span></a></li>
-            </ul>
-
-            <p></p>
-
-            <div class="ui-grid-a">
-                <div class="ui-block-a"><a class="ui-btn ui-icon-arrow-l ui-btn-icon-left" data-transition="slidefade" href="#pagefive">Previous</a></div>
-
-                <div class="ui-block-b"><a class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="slidefade" href="#pageseven">Next</a></div>
-            </div>
-
-            <p></p>
-        </div>
-    </div>
-    <!--page6-->
-
-    <div class="greenpage" data-role="page" id="pageseven">
-        <div data-role="header"><!--<h1>My App!</h1>			--><img alt="logo" src="img/logo-green.png" /> <a class="ui-btn ui-icon-refresh ui-btn-icon-left start-over top-refresh" data-direction="reverse" data-transition="slidefade" href="#pageone">Restart</a></div>
-
-        <div data-role="content">
-            <h2>Facial quality (select as applies)</h2>
-
-            <ul data-count-theme="c" data-inset="true" data-role="listview">
-                <li class="price-row" data-icon="false"><a href="#">Tribal marks (small) <span class="ui-li-count price-tag" id="- 20000">-N20,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">Tribal marks (big) <span class="ui-li-count price-tag" id="- 50000">-N50,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">Small scars <span class="ui-li-count price-tag" id="- 15000">-N15,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">Big scars <span class="ui-li-count price-tag" id="- 45000">-N45,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">Flawless <span class="ui-li-count price-tag" id="+ 50000">+N50,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">Dimples <span class="ui-li-count price-tag" id="+ 15000">+N15,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">Pimples <span class="ui-li-count price-tag" id="- 3000">-N3,000</span></a></li>
-            </ul>
-
-            <p></p>
-
-            <div class="ui-grid-a">
-                <div class="ui-block-a"><a class="ui-btn ui-icon-arrow-l ui-btn-icon-left" data-transition="slidefade" href="#pagesix">Previous</a></div>
-
-                <div class="ui-block-b"><a class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="slidefade" href="#pageeight">Next</a></div>
-            </div>
-
-            <p></p>
-        </div>
-    </div>
-    <!--page7-->
-
-    <div class="greenpage" data-role="page" id="pageeight">
-        <div data-role="header"><!--<h1>My App!</h1>			--><img alt="logo" src="img/logo-green.png" /> <a class="ui-btn ui-icon-refresh ui-btn-icon-left start-over top-refresh" data-direction="reverse" data-transition="slidefade" href="#pageone">Restart</a></div>
-
-        <div data-role="content">
-            <h2>Teeth</h2>
-
-            <ul data-count-theme="c" data-inset="true" data-role="listview">
-                <li class="price-row" data-icon="false"><a href="#">White with Gap <span class="ui-li-count price-tag" id="+ 20000">+N20,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">White with No Gap <span class="ui-li-count price-tag" id="+ 5000">+N5000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">Brown with Gap<span class="ui-li-count price-tag" id="- 5000">-N5,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">Brown with no Gap <span class="ui-li-count price-tag" id="- 10000">-N10,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">Ronaldinho <span class="ui-li-count price-tag" id="- 40000">-N40,000</span></a></li>
-            </ul>
-
-            <p></p>
-
-            <div class="ui-grid-a">
-                <div class="ui-block-a"><a class="ui-btn ui-icon-arrow-l ui-btn-icon-left" data-transition="slidefade" href="#pageseven">Previous</a></div>
-
-                <div class="ui-block-b"><a class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="slidefade" href="#pagenine">Next</a></div>
-            </div>
-
-            <p></p>
-        </div>
-    </div>
-    <!--page8-->
-
-    <div class="greenpage" data-role="page" id="pagenine">
-        <div data-role="header"><!--<h1>My App!</h1>			--><img alt="logo" src="img/logo-green.png" /> <a class="ui-btn ui-icon-refresh ui-btn-icon-left start-over top-refresh" data-direction="reverse" data-transition="slidefade" href="#pageone">Restart</a></div>
-
-        <div data-role="content">
-            <h2>Residency</h2>
-
-            <ul data-count-theme="c" data-inset="true" data-role="listview">
-                <li class="price-row" data-icon="false"><a href="#">Nigeria <span class="ui-li-count price-tag" id="+ 0">+N0</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">African country <span class="ui-li-count price-tag" id="+ 10000">+N10,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">The Abroad + SA<span class="ui-li-count price-tag" id="+ 50000">+N50,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">America <span class="ui-li-count price-tag" id="+ 100000">+N100,000</span></a></li>
-            </ul>
-
-            <p></p>
-
-            <div class="ui-grid-a">
-                <div class="ui-block-a"><a class="ui-btn ui-icon-arrow-l ui-btn-icon-left" data-transition="slidefade" href="#pageeight">Previous</a></div>
-
-                <div class="ui-block-b"><a class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="slidefade" href="#pageten">Next</a></div>
-            </div>
-
-            <p></p>
-        </div>
-    </div>
-    <!--page9-->
-
-    <div class="greenpage" data-role="page" id="pageten">
-        <div data-role="header"><!--<h1>My App!</h1>			--><img alt="logo" src="img/logo-green.png" /> <a class="ui-btn ui-icon-refresh ui-btn-icon-left start-over top-refresh" data-direction="reverse" data-transition="slidefade" href="#pageone">Restart</a></div>
-
-        <div data-role="content">
-            <h2>Nationality</h2>
-
-            <ul data-count-theme="c" data-inset="true" data-role="listview">
-                <li class="price-row" data-icon="false"><a href="#">Naija proper <span class="ui-li-count price-tag" id="+ 0">+N0</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">Dual citizenship (Africa) <span class="ui-li-count price-tag" id="+ 5000">+N5,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">Chinese/Indian <span class="ui-li-count price-tag" id="+ 25000">+N25,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">Dual citizenship (Europe) <span class="ui-li-count price-tag" id="+ 50000">+N50,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">Americana<span class="ui-li-count price-tag" id="+ 200000">+N200,000</span></a></li>
-            </ul>
-
-            <p></p>
-
-            <div class="ui-grid-a">
-                <div class="ui-block-a"><a class="ui-btn ui-icon-arrow-l ui-btn-icon-left" data-transition="slidefade" href="#pagenine">Previous</a></div>
-
-                <div class="ui-block-b"><a class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="slidefade" href="#pageeleven">Next</a></div>
-            </div>
-
-            <p></p>
-        </div>
-    </div>
-    <!--page10-->
-
-    <div class="greenpage" data-role="page" id="pageeleven">
-        <div data-role="header"><!--<h1>My App!</h1>			--><img alt="logo" src="img/logo-green.png" /> <a class="ui-btn ui-icon-refresh ui-btn-icon-left start-over top-refresh" data-direction="reverse" data-transition="slidefade" href="#pageone">Restart</a></div>
-
-        <div data-role="content">
-            <h2>Highest Education</h2>
-
-            <ul data-count-theme="c" data-inset="true" data-role="listview">
-                <li class="price-row" data-icon="false"><a href="#">PHd<span class="ui-li-count price-tag" id="- 50000">-N50,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">Masters<span class="ui-li-count price-tag" id="+ 100000">+N100,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">Bachelors<span class="ui-li-count price-tag" id="+ 75000">+N75,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">HND<span class="ui-li-count price-tag" id="+ 30000">+N30,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">OND<span class="ui-li-count price-tag" id="+ 15000">+N15,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">SSCE<span class="ui-li-count price-tag" id="+ 3000">+N3,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">Primary School<span class="ui-li-count price-tag" id="+ 500">+N500</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">At-all-at-all<span class="ui-li-count price-tag" id="- 100000">-N100,000</span></a></li>
-            </ul>
-
-            <p></p>
-
-            <div class="ui-grid-a">
-                <div class="ui-block-a"><a class="ui-btn ui-icon-arrow-l ui-btn-icon-left" data-transition="slidefade" href="#pageten">Previous</a></div>
-
-                <div class="ui-block-b"><a class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="slidefade" href="#pagetwelve">Next</a></div>
-            </div>
-
-            <p></p>
-        </div>
-    </div>
-    <!--page11-->
-
-    <div class="greenpage" data-role="page" id="pagetwelve">
-        <div data-role="header"><!--<h1>My App!</h1>			--><img alt="logo" src="img/logo-green.png" /> <a class="ui-btn ui-icon-refresh ui-btn-icon-left start-over top-refresh" data-direction="reverse" data-transition="slidefade" href="#pageone">Restart</a></div>
-
-        <div data-role="content">
-            <h2>Cooking skills</h2>
-
-            <ul data-count-theme="c" data-inset="true" data-role="listview">
-                <li class="price-row" data-icon="false"><a href="#">Calabar<span class="ui-li-count price-tag" id="+ 50000">+N50,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">Pounded yam<span class="ui-li-count price-tag" id="+ 30000">+N30,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">Rice &amp; orishirishi<span class="ui-li-count price-tag" id="+ 5000">+N5,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">Indomie<span class="ui-li-count price-tag" id="- 15000">-N15,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">Boiling egg<span class="ui-li-count price-tag" id="- 40000">-N40,000</span></a></li>
-            </ul>
-
-            <p></p>
-
-            <div class="ui-grid-a">
-                <div class="ui-block-a"><a class="ui-btn ui-icon-arrow-l ui-btn-icon-left" data-transition="slidefade" href="#pageeleven">Previous</a></div>
-
-                <div class="ui-block-b"><a class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="slidefade" href="#pagethirteen">Next</a></div>
-            </div>
-
-            <p></p>
-        </div>
-    </div>
-    <!--page12-->
-
-    <div class="greenpage" data-role="page" id="pagethirteen">
-        <div data-role="header"><!--<h1>My App!</h1>			--><img alt="logo" src="img/logo-green.png" /> <a class="ui-btn ui-icon-refresh ui-btn-icon-left start-over top-refresh" data-direction="reverse" data-transition="slidefade" href="#pageone">Restart</a></div>
-
-        <div data-role="content">
-            <h2>Employment</h2>
-
-            <div data-role="content" style="text-align:center">
-                <ul data-count-theme="c" data-inset="true" data-role="listview">
-                    <li class="price-row" data-icon="false"><a href="#">Unemployed<span class="ui-li-count price-tag" id="+ 0">+N0</span></a></li>
-                    <li class="custom-li">
-                        <div class="custom-collapsible" data-role="collapsible">
-                            <h4>Employed</h4>
-
-                            <ul data-role="listview">
-                                <li class="price-row" data-icon="false"><a href="#">Oil/Gas<span class="ui-li-count price-tag" id="+ 100000">+N100,000</span></a></li>
-                                <li class="price-row" data-icon="false"><a href="#">Banker<span class="ui-li-count price-tag" id="+ 40000">+N40,000</span></a></li>
-                                <li class="price-row" data-icon="false"><a href="#">Doctor<span class="ui-li-count price-tag" id="+ 50000">+N50,000</span></a></li>
-                                <li class="price-row" data-icon="false"><a href="#">Proper Lawyer<span class="ui-li-count price-tag" id="+ 50000">+N50,000</span></a></li>
-                                <li class="price-row" data-icon="false"><a href="#">Dangote Group<span class="ui-li-count price-tag" id="+ 15000">+N15,000</span></a></li>
-                                <li class="price-row" data-icon="false"><a href="#">Civil Servant<span class="ui-li-count price-tag" id="+ 30000">+N30,000</span></a></li>
-                                <li class="price-row" data-icon="false"><a href="#">Hospital work<span class="ui-li-count price-tag" id="+ 20000">+N20,000</span></a></li>
-                                <li class="price-row" data-icon="false"><a href="#">Computer computer<br />
-                                    work<span class="ui-li-count price-tag" id="+ 20000">+N20,000</span></a></li>
-                                <li class="price-row" data-icon="false"><a href="#">Talk Talk <br/>(Radio TV work)<span class="ui-li-count price-tag" id="+ 20000">+N20,000</span></a></li>
-                                <li class="price-row" data-icon="false"><a href="#">Charge & Bail <br/>Lawyer<span class="ui-li-count price-tag" id="+ 5000">+N5,000</span></a></li>
-                                <li class="price-row" data-icon="false"><a href="#">Police, Military,<br/> & paramilitary<span class="ui-li-count price-tag" id="+ 5000">+N5,000</span></a></li>
-                                <li class="price-row" data-icon="false"><a href="#">NSCDC <br/>(Oga @ The Top)<span class="ui-li-count price-tag" id="- 15000">-N15,000</span></a></li>
-
-
-                                <li class="price-row" data-icon="false"><a href="#">Emeka &amp; Sons<span class="ui-li-count price-tag" id="+ 2000">+N2,000</span></a></li>
-                                <li class="price-row" data-icon="false"><a href="#" style="border-bottom-width: 7px;border-bottom-color: #fff;">Buying &amp; selling<span class="ui-li-count price-tag" id="+ 1000">+N1,000</span></a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="custom-bottom-li price-row" data-icon="false"><a href="#" style="border-bottom-width: 7px;border-bottom-color: #fff;">Maga Dependent<span class="ui-li-count price-tag" id="- 10000">-N10,000</span></a></li>
-                </ul>
-            </div>
-
-            <p></p>
-
-            <div class="ui-grid-a">
-                <div class="ui-block-a"><a class="ui-btn ui-icon-arrow-l ui-btn-icon-left" data-transition="slidefade" href="#pagetwelve">Previous</a></div>
-
-                <div class="ui-block-b"><a class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="slidefade" href="#pagefourteen">Next</a></div>
-            </div>
-
-            <p></p>
-        </div>
-    </div>
-    <!--page13-->
-
-    <div class="greenpage" data-role="page" id="pagefourteen">
-        <div data-role="header"><!--<h1>My App!</h1>			--><img alt="logo" src="img/logo-green.png" /> <a class="ui-btn ui-icon-refresh ui-btn-icon-left start-over top-refresh" data-direction="reverse" data-transition="slidefade" href="#pageone">Restart</a></div>
-
-        <div data-role="content">
-            <h2>Body Art</h2>
-
-            <ul data-count-theme="c" data-inset="true" data-role="listview">
-                <li class="price-row" data-icon="false"><a href="#">Tattoo<span class="ui-li-count price-tag" id="- 10000">-N10,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">Piercings<span class="ui-li-count price-tag" id="- 5000">-N5,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">None<span class="ui-li-count price-tag" id="+ 0">+N0</span></a></li>
-            </ul>
-
-            <p></p>
-
-            <div class="ui-grid-a">
-                <div class="ui-block-a"><a class="ui-btn ui-icon-arrow-l ui-btn-icon-left" data-transition="slidefade" href="#pagethirteen">Previous</a></div>
-
-                <div class="ui-block-b"><a class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="slidefade" href="#pagefifteen">Next</a></div>
-            </div>
-
-            <p></p>
-        </div>
-    </div>
-    <!--page14-->
-
-    <div class="greenpage" data-role="page" id="pagefifteen">
-        <div data-role="header"><!--<h1>My App!</h1>			--><img alt="logo" src="img/logo-green.png" /> <a class="ui-btn ui-icon-refresh ui-btn-icon-left start-over top-refresh" data-direction="reverse" data-transition="slidefade" href="#pageone">Restart</a></div>
-
-        <div data-role="content">
-            <h2>Accent</h2>
-
-            <ul data-count-theme="c" data-inset="true" data-role="listview">
-                <li class="price-row" data-icon="false"><a href="#">Igbo<span class="ui-li-count price-tag" id="- 10000">-N10,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">Calabar<span class="ui-li-count price-tag" id="- 15000">-N15,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">Yoruba (H-factor)<span class="ui-li-count price-tag" id="- 20000">-N20,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">Warri<span class="ui-li-count price-tag" id="- 8000">-N8,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">Neutral<span class="ui-li-count price-tag" id="+ 2000">+N2,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">British<span class="ui-li-count price-tag" id="+ 45000">+N45,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">Americana proper<span class="ui-li-count price-tag" id="+ 40000">+N40,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">Americana (Local)<span class="ui-li-count price-tag" id="+ 5000">+N5,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">Confused Americana<span class="ui-li-count price-tag" id="+ 1000">+N1,000</span></a></li>
-            </ul>
-
-            <p></p>
-
-            <div class="ui-grid-a">
-                <div class="ui-block-a"><a class="ui-btn ui-icon-arrow-l ui-btn-icon-left" data-transition="slidefade" href="#pagefourteen">Previous</a></div>
-
-                <div class="ui-block-b"><a class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="slidefade" href="#pagesixteen">Next</a></div>
-            </div>
-
-            <p></p>
-        </div>
-    </div>
-    <!--page15-->
-
-    <div class="greenpage" data-role="page" id="pagesixteen">
-        <div data-role="header"><!--<h1>My App!</h1>			--><img alt="logo" src="img/logo-green.png" /> <a class="ui-btn ui-icon-refresh ui-btn-icon-left start-over top-refresh" data-direction="reverse" data-transition="slidefade" href="#pageone">Restart</a></div>
-
-        <div data-role="content">
-            <h2>Bonus</h2>
-
-            <ul data-count-theme="c" data-inset="true" data-role="listview">
-                <li class="price-row" data-icon="false"><a href="#">Club girl<span class="ui-li-count price-tag" id="- 40000">-N40,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">Ada ada<span class="ui-li-count price-tag" id="+ 30000">+N30,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">Prayer warrior<span class="ui-li-count price-tag" id="+ 40000">+N40,000</span></a></li>
-                <li class="price-row" data-icon="false"><a href="#">Ada in the morning<br />
-                    and Caro at night<span class="ui-li-count price-tag" id="+ 100000">+N100,000</span></a></li>
-            </ul>
-
-            <p></p>
-
-            <div class="ui-grid-a">
-                <div class="ui-block-a"><a class="ui-btn ui-icon-arrow-l ui-btn-icon-left" data-transition="slidefade" href="#pagefifteen">Previous</a></div>
-
-                <div class="ui-block-b"><a class="ui-btn ui-icon-check ui-btn-icon-right" data-transition="slidefade" href="#result">Submit</a></div>
-            </div>
-
-            <p></p>
-            <!--	 <p>
-<a href="#pageone" data-transition="slidefade" data-direction="reverse" class="ui-btn ui-icon-refresh ui-btn-icon-left start-over">Start Over</a>
-</p>            --></div>
-    </div>
-    <!--page16-->
-
-    <div data-role="page" id="result">
-        <div class="result-header affixed-header-style" data-role="header"><!--<h1>My App!</h1>			--><img alt="logo" src="img/logo-green.png" /> <a class="ui-btn ui-icon-refresh ui-btn-icon-left start-over top-refresh" data-direction="reverse" data-transition="slidefade" href="#pageone">Restart</a></div>
-
-        <div data-role="content">
-            <div id="loading"><img alt="loading" height="166" src="img/consulting.gif" width="160" /></div>
-
-            <div id="res"><!--    <h2>Elder's Verdict!</h2> -->
-                <p></p>
-
-                <div><img alt="elders" src="img/elders.jpg" width="274px" /></div>
-
-                <div>
-                    <h4>Your bride price is</h4>
-
-                    <h2><span>NGN </span><span id="price"></span><span>.00</span></h2>
-
-                    <h4 id="elder-comment">The elders are fasting on your behalf.</h4>
-                    <div style="padding: 15px;">
-                        <a target="_blank" href="#!" id="download-certificate">Click here to get your certificate</a>
+              <div id="res" class="container" style="padding-top: 90px">
+                <div class="row">
+                  <div class="col-md-8 offset-2" data-role="content">
+                    <div><img alt="elders" src="img/logo.jpg" width="274px" /></div>
+                    <div>
+                        <h4 id="elder-comment">The probability of you getting a loan from a finacial institution is .0%.</h4>
+
+                        <h4>Amount of Loan Predicted is</h4>
+
+                        <h2><span>Tshs </span><span id="price"></span><span>.00</span></h2>
                     </div>
+                    <div style="padding: 80px 15px;">
+                        <a target="_blank" href="#!" id="download-certificate">Click here to get a summary of what business areas you can improve to raise your probability</a>
+                    </div>
+                      <h4><em>Thank you for using BizFundi, Smart Mkopo Kocha - Intelligent Credit Readiness Service</em></h4>
+                  </div>
                 </div>
-
-                <div class="ui-grid-a social-share">
-                    <div class="ui-block-a"><a href="#" id="fb-share-link"><img alt="share on facebook" height="40" src="img/share-fb.png" /></a></div>
-
-                    <div class="ui-block-b"><!--id="custom-tweet-button">--><a class="twitter-share-button" href="#" id="tw-share-link"><img alt="share on twitter" height="40" src="img/share-tw.png"/></a> <!--<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>--></div>
-                </div>
-                <!-- <p>
-<a href="#pageone" data-transition="slidefade" data-direction="reverse" class="ui-btn ui-icon-refresh ui-btn-icon-left start-over">Start Over</a>
-</p>            --></div>
+              </div>
+          </div>
         </div>
     </div>
     <!--result-->

@@ -19,7 +19,6 @@ body, input, select, textarea, button, .ui-btn {
 
 .ui-content, .ui-header, .ui-footer {
     text-align: center;
-    color: #fff;
 }
 
 .ui-header, .ui-footer {
@@ -53,9 +52,11 @@ a.ui-link:hover, a.ui-link:focus {
 }*/
 
 .greenpage {
-    background: url(../img/bg-green.png) #285040;
     -webkit-background-size: cover;
     background-size: cover;
+}
+.greenpage .navbar-head {
+  font-family: "Kaushan Script","Helvetica Neue",Helvetica,Arial,cursive;
 }
 
 #disclaimer .ui-content.ui-body-a {
