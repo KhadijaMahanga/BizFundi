@@ -31,17 +31,17 @@
             });
             $(document).on('pageshow', "#result", function () {
 
-                var bridePriceFigure = $('#price').html();
-                var bridePriceFbComment = $('#fb-comment').html();
-                var fbshare = 'https://m.facebook.com/dialog/feed?app_id=1420280761574575&link=http://www.brideprice.com.ng&picture=http://anakle.com.ng/apps/brideprice/img/logo-green.png&name=Check Your BridePrice App&description=My bride price is <b>NGN' + bridePriceFigure + '.00</b>.%3Cbr%2F%3E%3Cb%3EElder%27s+verdict%3A+%3C%2Fb%3E ' + bridePriceFbComment + '&redirect_uri=http://www.brideprice.com.ng';
-
-                $('#fb-share-link').attr('href', fbshare);
-
-
-                var bridePriceTwComment = $('#tw-comment').html();
-                var twshare = 'http://twitter.com/intent/tweet?original_referer=http://brideprice.com.ng/&text=My bride price is NGN' + bridePriceFigure + '.00. Elders Verdict: ' + bridePriceTwComment + '&via=bridepricecheck';
-                //twshare = twshare.slice(0,-1);
-                $('#tw-share-link').attr('href', twshare);
+                //var bridePriceFigure = $('#price').html();
+                // var bridePriceFbComment = $('#fb-comment').html();
+                // var fbshare = 'https://m.facebook.com/dialog/feed?app_id=1420280761574575&link=http://www.brideprice.com.ng&picture=http://anakle.com.ng/apps/brideprice/img/logo-green.png&name=Check Your BridePrice App&description=My bride price is <b>NGN' + bridePriceFigure + '.00</b>.%3Cbr%2F%3E%3Cb%3EElder%27s+verdict%3A+%3C%2Fb%3E ' + bridePriceFbComment + '&redirect_uri=http://www.brideprice.com.ng';
+                //
+                // $('#fb-share-link').attr('href', fbshare);
+                //
+                //
+                // var bridePriceTwComment = $('#tw-comment').html();
+                // var twshare = 'http://twitter.com/intent/tweet?original_referer=http://brideprice.com.ng/&text=My bride price is NGN' + bridePriceFigure + '.00. Elders Verdict: ' + bridePriceTwComment + '&via=bridepricecheck';
+                // //twshare = twshare.slice(0,-1);
+                // $('#tw-share-link').attr('href', twshare);
 
 
                 setTimeout(function () {
@@ -63,14 +63,6 @@
         </script><script src="js/custom.js"></script>
     </head>
     <body>
-        <div id="hiddenPrice" style="display:none !important;">0</div>
-
-        <div id="fb-comment"></div>
-        <!--fb-comment-box-->
-
-        <div id="tw-comment"></div>
-        <!--tw-comment-box-->
-
         <div class="greenpage" data-role="page" data-theme="a" id="pageone">
             <div data-role="header">
               <h1 style="color: #fff !important;  width: 70% !important; margin: 0; text-align: left; margin-left: 10px;">Mkopo Kocha</h1></div>
@@ -103,7 +95,7 @@
                 </div>
                 <div class="form-group">
                   <label style="text-align: left;font-size: 20px;line-height: 2;">Location:</label>
-                  <select style="border-style: none !important; background-color: #fff;" data-corners="false" data-mini="true" name="sme-name" id="sme-name">
+                  <select style="border-style: none !important; background-color: #fff;" data-corners="false" data-mini="true" name="sme-location" id="sme-location">
                       <option>Arusha</option>
                       <option>Dar-es-salaam</option>
                       <option>Geita</option>
@@ -114,44 +106,44 @@
                     </select>
                 </div>
                 <div class="form-group">
-                  <label style="text-align: left;font-size: 20px;line-height: 2;">Age of business:</label><input class="ui-input-text" data-corners="false" data-mini="true" name="friend-name" required type="text" />
+                  <label style="text-align: left;font-size: 20px;line-height: 2;">Age of business:</label><input class="ui-input-text" data-corners="false" data-mini="true" name="sme-age-business" id="sme-age-business" required type="number" />
                 </div>
                 <div class="form-group">
                   <label style="text-align: left;font-size: 20px;line-height: 2;">Business Type:</label>
-                  <select style="border-style: none !important; background-color: #fff;" data-corners="false" data-mini="true" name="sme-name" id="sme-business-type">
-                      <option>Agriculture</option>
-                      <option>Building & Construction</option>
-                      <option>Business Developmnet</option>
-                      <option>Education</option>
-                      <option>Energy</option>
-                      <option>Environment</option>
-                      <option>Financial Services</option>
-                      <option>Food Processing</option>
-                      <option>Health</option>
-                      <option>Hotels</option>
-                      <option>Information Technology</option>
-                      <option>Manufacturing</option>
-                      <option>Tourism</option>
-                      <option>Trading</option>
-                      <option>Transport and Communication</option>
-                      <option>Water</option>
+                  <select style="border-style: none !important; background-color: #fff;" data-corners="false" data-mini="true" name="sme-business-type" id="sme-business-type">
+                      <option value="1">Agriculture</option>
+                      <option value="2">Building & Construction</option>
+                      <option value="3">Business Developmnet</option>
+                      <option value="4">Education</option>
+                      <option value="5">Energy</option>
+                      <option value="6">Environment</option>
+                      <option value="7">Financial Services</option>
+                      <option value="8">Food Processing</option>
+                      <option value="9">Health</option>
+                      <option value="10">Hotels</option>
+                      <option value="11">Information Technology</option>
+                      <option value="12">Manufacturing</option>
+                      <option value="13">Tourism</option>
+                      <option value="14">Trading</option>
+                      <option value="15">Transport and Communication</option>
+                      <option value="16">Water</option>
                     </select>
                 </div>
                 <div class="form-group">
                   <label style="text-align: left;font-size: 20px;line-height: 2;">Business Organistaion:</label>
-                  <select style="border-style: none !important; background-color: #fff;" data-corners="false" data-mini="true" name="sme-name" id="sme-business-organisation">
-                      <option>Association</option>
-                      <option>Corporation</option>
-                      <option>Limited Liability</option>
-                      <option>Partnership</option>
-                      <option>Sole Proprietorship</option>
+                  <select style="border-style: none !important; background-color: #fff;" data-corners="false" data-mini="true" name="sme-business-organisation" id="sme-business-organisation">
+                      <option value="1">Association</option>
+                      <option value="2">Corporation</option>
+                      <option value="3">Limited Liability</option>
+                      <option value="4">Partnership</option>
+                      <option value="5">Sole Proprietorship</option>
                     </select>
                 </div>
                 <div class="form-group">
-                  <label style="text-align: left;font-size: 20px;line-height: 2;">Number of employees:</label> <input class="ui-input-text" data-corners="false" data-mini="true" name="friend-name" required type="text" />
+                  <label style="text-align: left;font-size: 20px;line-height: 2;">Number of employees:</label> <input class="ui-input-text" data-corners="false" data-mini="true" name="sme-no-employee" id="sme-no-employee" required type="number" />
                 </div>
                 <div class="form-group">
-                  <label style="text-align: left;font-size: 20px;line-height: 2;">Experience of Top Manager:</label> <input class="ui-input-text" data-corners="false" data-mini="true" name="friend-name" required type="text" />
+                  <label style="text-align: left;font-size: 20px;line-height: 2;">Experience of Top Manager:</label> <input class="ui-input-text" data-corners="false" data-mini="true" name="sme-manager-experience" id="sme-manager-experience" required type="number" />
                 </div>
                   <!-- <div data-mini="true" data-role="controlgroup" data-type="horizontal">
                       <a class="ui-btn ui-icon-back ui-btn ui-icon-arrow-r" href="#pagetwo">Go</a> </div> -->
@@ -159,7 +151,7 @@
               <div class="ui-grid-a">
                   <div class="ui-block-a"><a class="ui-btn ui-icon-arrow-l ui-btn-icon-left" data-transition="slidefade" href="#pageone">Previous</a></div>
 
-                  <div class="ui-block-b"><a class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="slidefade" href="#pagethree">Next</a></div>
+                  <div class="ui-block-b"><a class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="slidefade" id="topagethree" href="#pagethree">Next</a></div>
               </div>
           </div>
         </div>
@@ -178,28 +170,28 @@
               <h3>Enter your Financial Information </h3>
               <form style="padding: 10px 0">
                 <div class="form-group">
-                  <label style="text-align: left;font-size: 20px;line-height: 2;">Amount of Revenue:</label> <input class="ui-input-text"  data-corners="false" data-mini="true" name="friend-name" required type="text" />
+                  <label style="text-align: left;font-size: 20px;line-height: 2;">Amount of Revenue:</label> <input class="ui-input-text"  data-corners="false" data-mini="true" name="sme-revenue" id="sme-revenue" required type="number" />
                 </div>
                 <div class="form-group">
-                  <label style="text-align: left;font-size: 20px;line-height: 2;">Amount of Expenditure:</label><input class="ui-input-text" data-corners="false" data-mini="true" name="friend-name" required type="text" />
+                  <label style="text-align: left;font-size: 20px;line-height: 2;">Amount of Expenditure:</label><input class="ui-input-text" data-corners="false" data-mini="true" name="sme-expenditure" id="sme-expenditure" required type="number" />
                 </div>
                 <div class="form-group">
-                  <label style="text-align: left;font-size: 20px;line-height: 2;">Years of Profitability:</label><input class="ui-input-text" data-corners="false" data-mini="true" name="friend-name" required type="text" />
+                  <label style="text-align: left;font-size: 20px;line-height: 2;">Years of Profitability:</label><input class="ui-input-text" data-corners="false" data-mini="true" name="sme-profitability" id="sme-profitability" required type="number" />
                 </div>
                 <div class="form-group">
-                  <label style="text-align: left;font-size: 20px;line-height: 2;">Assets:</label><input class="ui-input-text" data-corners="false" data-mini="true" name="friend-name" required type="text" />
+                  <label style="text-align: left;font-size: 20px;line-height: 2;">Assets:</label><input class="ui-input-text" data-corners="false" data-mini="true" name="sme-asset" id="sme-asset" required type="text" />
                 </div>
                 <div class="form-group">
                   <label style="text-align: left;font-size: 20px;line-height: 2;">Collateral:</label>
-                  <label class="checkbox-inline"><input type="checkbox" value="sme-collateral-building">Building</label>
-                  <label class="checkbox-inline"><input type="checkbox" value="sme-collateral-land">Land</label>
-                  <label class="checkbox-inline"><input type="checkbox" value="sme-collateral-cash">Cash</label>
-                  <label class="checkbox-inline"><input type="checkbox" value="sme-collateral-car">Car</label>
-                  <label class="checkbox-inline"><input type="checkbox" value="sme-collateral-equipment">Equipment</label>
-                  <label class="checkbox-inline"><input type="checkbox" value="sme-collateral-guarantor-letter">Guarantor Letter</label>
+                  <label class="checkbox-inline"><input type="checkbox" name="sme-collateral-building">Building</label>
+                  <label class="checkbox-inline"><input type="checkbox" name="sme-collateral-land">Land</label>
+                  <label class="checkbox-inline"><input type="checkbox" name="sme-collateral-cash">Cash</label>
+                  <label class="checkbox-inline"><input type="checkbox" name="sme-collateral-car">Car</label>
+                  <label class="checkbox-inline"><input type="checkbox" name="sme-collateral-equipment">Equipment</label>
+                  <label class="checkbox-inline"><input type="checkbox" name="sme-collateral-guarantor-letter">Guarantor Letter</label>
                 </div>
                 <div class="form-group">
-                  <label style="text-align: left;font-size: 20px;line-height: 2;">Amount of debt:</label> <input class="ui-input-text" data-corners="false" data-mini="true" name="friend-name" required type="text" />
+                  <label style="text-align: left;font-size: 20px;line-height: 2;">Amount of debt:</label> <input class="ui-input-text" data-corners="false" data-mini="true" name="sme-debt" id="sme-debt" required type="number" />
                 </div>
                   <!-- <div data-mini="true" data-role="controlgroup" data-type="horizontal">
                       <a class="ui-btn ui-icon-back ui-btn ui-icon-arrow-r" href="#pagetwo">Go</a> </div> -->
@@ -207,7 +199,7 @@
               <div class="ui-grid-a">
                   <div class="ui-block-a"><a class="ui-btn ui-icon-arrow-l ui-btn-icon-left" data-transition="slidefade" href="#pagetwo">Previous</a></div>
 
-                  <div class="ui-block-b"><a class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="slidefade" href="#pagefour">Next</a></div>
+                  <div class="ui-block-b"><a class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="slidefade" id="topagefour" href="#pagefour">Next</a></div>
               </div>
           </div>
         </div>
@@ -227,45 +219,44 @@
               <form style="padding: 10px 0">
                 <div class="form-group">
                   <label style="text-align: left;font-size: 20px;line-height: 2;">Financing Project:</label>
-                  <select style="border-style: none !important; background-color: #fff;" data-corners="false" data-mini="true" name="sme-name" id="sme-finance-project">
-                      <option>Expanding Business</option>
-                      <option>Research</option>
-                      <option>New Control and Monitoring Systems</option>
-                      <option>New equipment</option>
-                      <option>New Office</option>
-                      <option>Fixing damaged Equipments</option>
-                      <option>New Product Development</option>
-                      <option>New Vehicles</option>
+                  <select style="border-style: none !important; background-color: #fff;" data-corners="false" data-mini="true" name="sme-finance-project" id="sme-finance-project">
+                      <option value="1">Expanding Business</option>
+                      <option value="2">Research</option>
+                      <option value="3">New Control and Monitoring Systems</option>
+                      <option value="4">New equipment</option>
+                      <option value="5">New Office</option>
+                      <option value="6">Fixing damaged Equipments</option>
+                      <option value="7">New Product Development</option>
+                      <option value="8">New Vehicles</option>
                     </select>
                 </div>
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                   <label style="text-align: left;font-size: 20px;line-height: 2;">Do you have Financial Instituion Preference? Check all that apply:</label>
-                  <label class="checkbox-inline"><input type="checkbox" value="sme-institution-microfinance">Microfinance</label>
-                  <label class="checkbox-inline"><input type="checkbox" value="sme-institution-bank">Bank</label>
-                  <label class="checkbox-inline"><input type="checkbox" value="sme-institution-saccos">Saccos</label>
-                </div>
+                  <label class="checkbox-inline"><input type="checkbox" name="sme-institution-microfinance">Microfinance</label>
+                  <label class="checkbox-inline"><input type="checkbox" name="sme-institution-bank">Bank</label>
+                  <label class="checkbox-inline"><input type="checkbox" name="sme-institution-saccos">Saccos</label>
+                </div> -->
                 <div class="form-group">
                   <label style="text-align: left;font-size: 20px;line-height: 2;">Are you assigned to a business advisor?</label>
-                    <label class="radio"><input type="radio" value="">Yes</label>
-                    <label class="radio"><input type="radio" value="">No</label>
+                    <label class="radio"><input type="radio" name="sme-advisor-yes" value="1">Yes</label>
+                    <label class="radio"><input type="radio" name="sme-advisor-no" value="0">No</label>
 
                 </div>
                 <div class="form-group">
                   <label style="text-align: left;font-size: 20px;line-height: 2;">Do you have? Check all that apply:</label>
-                  <label class="checkbox-inline"><input type="checkbox" value="sme-document-certificate">Certificate of Registration or Incorporation</label>
-                  <label class="checkbox-inline"><input type="checkbox" value="sme-document-licence">Business Licence</label>
-                  <label class="checkbox-inline"><input type="checkbox" value="sme-document-tin">Tin Number</label>
-                  <label class="checkbox-inline"><input type="checkbox" value="sme-document-return">Filed Annual Return</label>
-                  <label class="checkbox-inline"><input type="checkbox" value="sme-document-resolution">Minutes of Board Resolution</label>
-                  <label class="checkbox-inline"><input type="checkbox" value="sme-document-financial">Audited Financials</label>
-                  <label class="checkbox-inline"><input type="checkbox" value="sme-document-sheet">Balance Sheets and Income Statement</label>
-                  <label class="checkbox-inline"><input type="checkbox" value="sme-document-plan">Business or Project Plan</label>
-                  <label class="checkbox-inline"><input type="checkbox" value="sme-document-projections">Projections of financials based on projects</label>
-                  <label class="checkbox-inline"><input type="checkbox" value="sme-document-financial">Audited Financials</label>
+                  <label class="checkbox-inline"><input type="checkbox" name="sme-document-certificate">Certificate of Registration or Incorporation</label>
+                  <label class="checkbox-inline"><input type="checkbox" name="sme-document-licence">Business Licence</label>
+                  <label class="checkbox-inline"><input type="checkbox" name="sme-document-tin">Tin Number</label>
+                  <label class="checkbox-inline"><input type="checkbox" name="sme-document-return">Filed Annual Return</label>
+                  <label class="checkbox-inline"><input type="checkbox" name="sme-document-resolution">Minutes of Board Resolution</label>
+                  <label class="checkbox-inline"><input type="checkbox" name="sme-document-financial">Audited Financials</label>
+                  <label class="checkbox-inline"><input type="checkbox" name="sme-document-sheet">Balance Sheets and Income Statement</label>
+                  <label class="checkbox-inline"><input type="checkbox" name="sme-document-plan">Business or Project Plan</label>
+                  <label class="checkbox-inline"><input type="checkbox" name="sme-document-projections">Projections of financials based on projects</label>
                 </div>
                 <div class="form-group">
-                  <label style="text-align: left;font-size: 20px;line-height: 2;">Amount of loan required:</label> <input class="ui-input-text" data-corners="false" data-mini="true" name="friend-name" required type="text" />
+                  <label style="text-align: left;font-size: 20px;line-height: 2;">Amount of loan required:</label> <input class="ui-input-text" data-corners="false" data-mini="true" name="sme-loan" id="sme-loan" required type="number" />
                 </div>
                   <!-- <div data-mini="true" data-role="controlgroup" data-type="horizontal">
                       <a class="ui-btn ui-icon-back ui-btn ui-icon-arrow-r" href="#pagetwo">Go</a> </div> -->
@@ -273,7 +264,7 @@
               <div class="ui-grid-a">
                   <div class="ui-block-a"><a class="ui-btn ui-icon-arrow-l ui-btn-icon-left" data-transition="slidefade" href="#pagethree">Previous</a></div>
 
-                  <div class="ui-block-b"><a class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="slidefade" href="#result">Next</a></div>
+                  <div class="ui-block-b"><a class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="slidefade" id="toresult" href="#result">Next</a></div>
               </div>
             </div>
           </div>
@@ -330,7 +321,7 @@
     <!--disclaimer-->
 
     <div data-id="main-footer" data-role="footer" id="footer"><span>NGN </span><span id="price">0</span></div>
-    <script>
+    <!-- <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
             m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -339,7 +330,7 @@
         ga('create', 'UA-51322228-1', 'brideprice.com.ng');
         ga('send', 'pageview');
 
-    </script>
+    </script> -->
     <script>
         $(function(){
             $('#download-certificate').removeClass('ui-link');

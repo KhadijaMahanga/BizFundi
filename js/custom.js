@@ -1,155 +1,153 @@
 // JavaScript Document
-$(document).ready(function(e) {	
-    var currentBridePrice; //variable to hold current bride price
-    var totalBridePrice = 0;	//variable to hold total brideprice incrementally
-    
+$(document).ready(function(e) {
+
+  var sme_name = "";
+  var sme_location = 0;
+  var sme_age_business = 0;
+  var sme_business_type = 0;
+  var sme_business_organisation = 0;
+  var sme_no_employee = 0;
+  var sme_manager_experirence = 0;
+  var sme_revenue = 0;
+  var sme_expenditure = 0;
+  var sme_profitability = 0;
+  var sme_assets = 0;
+  var sme_debt = 0;
+  var sme_loan = 0;
+  var sme_collateral_building = 0;
+  var sme_collateral_land = 0;
+  var sme_collateral_car = 0;
+  var sme_collateral_cash = 0;
+  var sme_collateral_equipment = 0;
+  var sme_collateral_guarantor_letter = 0;
+  var sme_finance_project = sme_document_sheet = 0;
+  var sme_advisor = sme_document_certificate = sme_document_financial = sme_document_licence = sme_document_tin = sme_document_plan = sme_document_return = sme_document_projections = sme_document_resolution = 0;
+
+  function initializeVariable () {
+     sme_name = "";
+     sme_location = 0;
+     sme_age_business = 0;
+     sme_business_type = 0;
+     sme_business_organisation = 0;
+     sme_no_employee = 0;
+     sme_manager_experirence = 0;
+     sme_revenue = 0;
+     sme_expenditure = 0;
+     sme_profitability = 0;
+     sme_assets = 0;
+     sme_debt = 0;
+     sme_loan = 0;
+     sme_collateral_building = 0;
+     sme_collateral_land = 0;
+     sme_collateral_car = 0;
+     sme_collateral_cash = 0;
+     sme_collateral_equipment = 0;
+     sme_collateral_guarantor_letter = 0;
+     sme_finance_project = sme_document_sheet = 0;
+     sme_advisor = sme_document_certificate = sme_document_financial = sme_document_licence = sme_document_tin = sme_document_plan = sme_document_return = sme_document_projections = sme_document_resolution =  0;
+
+  }
+
+  $("#topagethree").click(function() {
+      sme_name =  $("#sme-name").val();
+      sme_location = $("#sme-location").val();
+      sme_no_employee = $("#sme-no-employee").val();
+      sme_manager_experirence = $("#sme-manager-experience").val();
+      sme_age_business = $("#sme-age-business").val();
+      sme_business_type = $("#sme-business-type").val();
+      sme_business_organisation = $("#sme-business-organisation").val();
+  //post code
+  });
+
+
+$("#topagefour").click(function() {
+    sme_revenue =  $("#sme-revenue").val();
+    sme_expenditure = $("#sme-expenditure").val();
+    sme_profitability = $("#sme-profitability").val();
+    sme_assets = $("#sme-asset").val();
+    sme_debt = $("#sme-debt").val();
+
+    if ($('input[name=sme-collateral-building]').is(':checked')) {
+      sme_collateral_building = 1;
+    }
+    if ($('input[name=sme-collateral-equipment]').is(':checked')) {
+      sme_collateral_equipment = 1;
+    }
+    if ($('input[name=sme-collateral-car]').is(':checked')) {
+      sme_collateral_car = 1;
+    }
+    if ($('input[name=sme-collateral-cash]').is(':checked')) {
+      sme_collateral_cash = 1;
+    }
+    if ($('input[name=sme-collateral-guarantor-letter]').is(':checked')) {
+      sme_collateral_guarantor_letter = 1;
+    }
+    if ($('input[name=sme-collateral-land]').is(':checked')) {
+      sme_collateral_land = 1;
+    }
+
+//post code
+  });
+
+
+  $("#topresult").click(function() {
+      sme_loan =  $("#sme-loan").val();
+      sme_finance_project = $("#sme-finance-project").val();
+      sme_expenditure = $("#sme-expenditure").val();
+      sme_profitability = $("#sme-profitability").val();
+      sme_assets = $("#sme-asset").val();
+      sme_debt = $("#sme-debt").val();
+
+      if ($('input[name=sme-advisor-yes]').is(':checked')) {
+        sme_advisor = 1;
+      }
+      if ($('input[name=sme-advisor-no]').is(':checked')) {
+        sme_advisor = 1;
+      }
+
+      //sme documents
+      if ($('input[name=sme-sme-document-certificate]').is(':checked')) {
+        sme_document_certificate = 1;
+      }
+      if ($('input[name=sme-document-licence]').is(':checked')) {
+        sme_document_licence = 1;
+      }
+      if ($('input[name=sme-document-tin]').is(':checked')) {
+        sme_document_tin = 1;
+      }
+      if ($('input[name=sme-document-return]').is(':checked')) {
+        sme_document_return = 1;
+      }
+      if ($('input[name=sme-document-sheet]').is(':checked')) {
+        sme_document_sheet = 1;
+      }
+      if ($('input[name=sme-document-plan]').is(':checked')) {
+        sme_document_plan = 1;
+      }
+      if ($('input[name=sme-document-resolution]').is(':checked')) {
+        sme_document_resolution = 1;
+      }
+      if ($('input[name=sme-document-projections]').is(':checked')) {
+        sme_document_projections = 1;
+      }
+      if ($('input[name=sme-document-financial]').is(':checked')) {
+        sme_document_financial = 1;
+      }
+
+
+  //post code
+    });
 
     /*On click of start over
 	Set all values to default
 	*/
     $('.start-over').click(function(){
+        initializeVariable ();
         $('#hiddenPrice').html('0');
         $('#price').html('0');
         $('li').removeClass('selected-option');
         currentBridePrice = 0;
 
-        /*Set elder's comments to default values*/
-        $('#elder-comment').html('The elders are fasting on your behalf. Please see the elders in private');
-        $('#fb-comment').html('As e be like this, you still want to collect bride price? There is God o!');
-        $('#tw-comment').html('Tufiakwa!');
     });
 
-    /*
-	On select of option from category
-    */
-    $('.price-row').click(function(){
-
-        /*Reverse computations
-		If option has been selected from the category previously
-		*/	
-        if($(this).parent('ul').find('li').hasClass('selected-option')){
-            x = $(this).parent('ul').find('li').find('a span').attr('id');									
-            y = x.split(" ");
-            var  operator = y[0];
-            var amount = y[1];
-            console.log(operator);			console.log(amount);
-            if(operator == '+'){
-                totalBridePrice = totalBridePrice-parseInt(amount);
-                console.log(totalBridePrice);
-            }
-            if(operator == '-'){
-                totalBridePrice = totalBridePrice+parseInt(amount);
-                console.log(totalBridePrice);
-            }
-            if(operator == '%'){
-                totalBridePrice = totalBridePrice + parseInt(currentBridePrice)*parseInt(amount)/100;
-                console.log(totalBridePrice);
-            }
-            $(this).parent('ul').find('li').removeClass('selected-option');
-
-            console.log(currentBridePrice);
-        }
-
-        /*Normal computations
-		First time selection from category
-		*/
-
-        $(this).addClass('selected-option');	
-        currentBridePrice = $('#hiddenPrice').html();
-        currentBridePrice = parseInt(currentBridePrice.replace(",", ""));		
-        var x = $(this).find('a span').attr('id');					
-        y = x.split(" ");
-        var  operator = y[0];
-        var amount = y[1];
-        if(operator == '+'){
-            if (totalBridePrice != 0){
-                totalBridePrice = totalBridePrice+parseInt(amount);
-            }
-            else totalBridePrice = parseInt(currentBridePrice)+parseInt(amount);
-        }
-        if(operator == '-'){
-            if (totalBridePrice != 0){
-                totalBridePrice = parseInt(currentBridePrice)-parseInt(amount);
-            }
-            else
-                totalBridePrice = parseInt(currentBridePrice)-parseInt(amount);
-        }
-        if(operator == '%'){
-            if (totalBridePrice != 0){
-                totalBridePrice = parseInt(currentBridePrice) - ((parseInt(currentBridePrice)*parseInt(amount))/100);
-            }
-            else
-                totalBridePrice = parseInt(currentBridePrice)-parseInt(amount);		
-        }
-
-        /*Insert elders comments based on total brideprice*/
-        if(totalBridePrice >= 1000000){ 
-            $('#elder-comment').html('Exclusive Wife Material! Any chewing gum boy that comes near you shall hear from Amadioha');
-            $('#fb-comment').html('Exclusive Wife Material! Any chewing gum boy that comes near you shall hear from Amadioha.');
-            $('#tw-comment').html('Exclusive Wife Material!');	
-
-        }
-        else if (totalBridePrice >= 600000){ 
-            $('#elder-comment').html('Super Premium Babe! Your bride price is going to cause a war in this Africa.');
-            $('#fb-comment').html('Super Premium Babe! Your bride price is going to cause a war in this Africa.');
-            $('#tw-comment').html('Super Premium babe!');	  
-        }
-        else if (totalBridePrice >= 400000){ 
-            $('#elder-comment').html('Premium Babe! Your wife material is 100 yards of cord lace.');
-            $('#fb-comment').html('Premium babe! 100 yards of wife material.');
-            $('#tw-comment').html('Premium babe!');	  
-        }
-        else if (totalBridePrice >= 300000) {
-            $('#elder-comment').html('Chassis babe with NAFDAC Number!');
-            $('#fb-comment').html('Chassis babe with NAFDAC number');
-            $('#tw-comment').html('Chassis babe!');
-        }
-        else if (totalBridePrice >= 200000) {
-            $('#elder-comment').html('You try make sense. 10 yards of wife material.');
-            $('#fb-comment').html('Make sense! 10 yards of wife material');
-            $('#tw-comment').html('Make sense babe!');
-        }
-        else if (totalBridePrice >= 100000) {
-            $('#elder-comment').html('You have pass WAEC. 5 credit.');
-            $('#fb-comment').html('Wife levels has passed WAEC. 5 credits.');
-            $('#tw-comment').html('5 Credit WAEC pass');
-
-        }
-        else if (totalBridePrice >= 50000) {
-            $('#elder-comment').html('Na only you waka come? We recommend two weeks of dry fasting and prayers for improvement.');
-            $('#fb-comment').html('Two weeks of dry fasting and prayers recommended for improvement.');
-            $('#tw-comment').html('Fasting recommended');
-        }
-        else if (totalBridePrice == 0) {
-            $('#elder-comment').html('The elders are fasting on your behalf.');
-            $('#fb-comment').html('The bride price is so low, the elders have proceeded on fasting and prayers.');
-            $('#tw-comment').html('Tufiakwa!');
-        }
-        else if (totalBridePrice >= -50000) {
-            $('#elder-comment').html('As e be like this, you still want to collect bride price? There is God o!');
-            $('#fb-comment').html('As e be like this, you still want to collect bride price? There is God o!');
-            $('#tw-comment').html('Tufiakwa!');
-        }
-        else{
-            //if (totalBridePrice <= -10000) {
-            $('#elder-comment').html('The elders are fasting on your behalf. Please see the elders in private');
-            $('#fb-comment').html('As e be like this, you still want to collect bride price? There is God o!');
-            $('#tw-comment').html('Tufiakwa!');
-        }	
-        console.log(totalBridePrice);	
-        
-        if(totalBridePrice >= 100000){
-            var downloadLink = 'http://www.sillypetitions.com/cert.php?price='+totalBridePrice;
-            $('#download-certificate').attr('href',downloadLink);
-        }
-
-        /*Insert brideprice in brideprice div*/
-        $('#footer #price').html(addNeededComma(totalBridePrice));			
-    });
 });
-
-/*Function to add needed commas to currency figure*/
-function addNeededComma(str){
-    return str.toString().replace(/,/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
-
